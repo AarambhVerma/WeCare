@@ -1,0 +1,6 @@
+{{#if errors}}
+<p>The following errors occured:</p>
+    {{#each errors}}        
+        <li>{{this.message}}</li>
+    {{/each}}
+{{/if}}

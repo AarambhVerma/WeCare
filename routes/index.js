@@ -1,0 +1,41 @@
+const express = require('express')
+const router = express.Router()
+
+//template engine route
+router.get("/",(req,res) => {
+    res.render('index')
+})
+
+router.get("/about-us",(req,res) =>{
+    res.render('about_us')
+})
+
+router.get("/activity",(req,res) =>{
+    res.render('activity')
+})
+
+router.get("/blog",(req,res) =>{
+    res.render('blog')
+})
+
+router.get("/contact-us",(req,res) =>{
+    res.render('contact_us')
+})
+
+router.get("/gallery",(req,res) =>{
+    res.render('gallery')
+})
+
+router.get("/login",(req,res) =>{
+    res.render('login')
+})
+
+router.get("/profile",(req,res) =>{
+    res.render('profile')
+})
+
+router.get("/services",(req,res) =>{
+    res.render('services')
+})
+
+module.exports = router

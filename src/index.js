@@ -1,0 +1,44 @@
+const express = require("express");
+const connectDB = require("./db/connection")
+const path = require("path");
+const hbs = require("hbs");
+// const { connect } = require("../routes/index");
+const dotenv = require('dotenv')
+
+dotenv.config({path: './config.env'})
+
+connectDB()
+
+const app = express();
+
+const templatePath = path.join(__dirname,"templates/views")
+const partialsPath = path.join(__dirname,"templates/partials")
+
+//built in middleware
+app.use(express.static(path.join(__dirname, "../public")))
+
+//handlebar custom helpers
+const { validateValues } = require('../helpers/hbs')
+
+//handlebars setup
+app.set('view engine', 'hbs');
+app.set('views',templatePath)
+hbs.registerPartials(partialsPath)
+
+hbs.registerHelper('validateValues', validateValues)
+
+//Body Parser
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
+
+
+
+app.use("/", require('../routes/index'))
+app.use("/auth", require('../routes/auth'))
+
+const PORT = process.env.PORT || 5000;
+
+//listen
+app.listen(PORT, () => {
+    console.log(`listen to port ${PORT}`)
+})
