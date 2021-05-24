@@ -52,7 +52,12 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 d-none d-md-block col-md-6 btn-bhed">
-                    <button class="btn btn-sm btn-success" onclick="javascript:location.href='/login'">Join Us</button>             
+                    {{#if user}}
+                        <button class="btn btn-sm btn-success" onclick="javascript:location.href='auth/logout'">Logout</button>
+                    {{else}}
+                        <button class="btn btn-sm btn-success" onclick="javascript:location.href='auth/login'">Join Us</button>
+                    {{/if}}
+                    <button class="btn btn-sm btn-success" onclick="javascript:location.href='auth/logout'">Logout</button>
                 </div>
             </div>
         </div>

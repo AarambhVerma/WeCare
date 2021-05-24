@@ -83,34 +83,32 @@
 
 
 <h1>Login</h1>
-<form action="/auth/register" method="post">
+<form action="/auth/login" method="post">
     <div class="form-group">
-        <label for="name">Name</label>
-        <input
-        type="name"
-        id="name"
-        name="name"
-        class="form-control"
-        placeholder="Enter Name"
-        value="{{validateValues name}}"
-        />
+        <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email"
+          />
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
-        <input
+      <label for="password">Password</label>
+      <input
         type="password"
         id="password"
         name="password"
         class="form-control"
-        placeholder="Create Password"
-        value="{{validateValues password}}"
-        />
+        placeholder="Enter Password"
+      />
     </div>
     <button type="submit" class="btn btn-primary btn-block">
         Login
     </button>
 </form>
 {{> errors}}
-<p class="lead mt-4">New Account? <a href="/auth/register">Login</a></p>
+<p class="lead mt-4">New Account? <a href="/auth/register">Register</a></p>
 </body>
 </html>

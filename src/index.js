@@ -4,12 +4,17 @@ const path = require("path");
 const hbs = require("hbs");
 // const { connect } = require("../routes/index");
 const dotenv = require('dotenv')
+const session = require('express-session')
+const passport = require('passport')
 
 dotenv.config({path: './config.env'})
 
 connectDB()
 
 const app = express();
+
+//passport config
+require('./passport')(passport)
 
 const templatePath = path.join(__dirname,"templates/views")
 const partialsPath = path.join(__dirname,"templates/partials")
@@ -18,7 +23,8 @@ const partialsPath = path.join(__dirname,"templates/partials")
 app.use(express.static(path.join(__dirname, "../public")))
 
 //handlebar custom helpers
-const { validateValues } = require('../helpers/hbs')
+const { validateValues } = require('../helpers/hbs');
+// const passport = require("passport");
 
 //handlebars setup
 app.set('view engine', 'hbs');
@@ -31,7 +37,16 @@ hbs.registerHelper('validateValues', validateValues)
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
+//express session
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+}))
 
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", require('../routes/index'))
 app.use("/auth", require('../routes/auth'))

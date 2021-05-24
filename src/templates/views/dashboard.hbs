@@ -1,0 +1,36 @@
+{{> navbar}}    
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h1>Hello {{name}}</h1>
+                <h2>Admin Dashboard</h2>
+                <!--<ul>
+                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i>Profile</li>
+                </ul>-->
+                <button type="submit" name="view-act" onclick="javascript:location.href='show_activities.html'" >View Activity</button>
+            <button type="submit" name="create-act" onclick="javascript:location.href='form.html'">Create New Activity</button>
+            </div>
+        </div>
+    </div>
+
+
+    {{#if User}}
+        {{#each User}}
+            <p>{{User.name}}</p>
+        {{/each}}
+    {{/if}}
+
+
+    {{> footer}}
+    
+</body>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+<script src="assets/plugins/slider/js/owl.carousel.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+</html>

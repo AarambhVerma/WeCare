@@ -1,14 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
+const { ensureAuth, ensureGuest } = require('../middleware/authcheck')
+
 //Import User model
 const User = require('../models/User')
 
-router.get("/login",(req,res) => {
+router.get("/login", ensureGuest, (req,res) => {
     res.render('login')
 })
 
-router.get("/register",(req,res) => {
+router.get("/register", ensureGuest, (req,res) => {
     res.render('register')
 })
 
@@ -81,6 +84,23 @@ router.post("/register",(req,res) => {
     errors.forEach(error => {
         console.log(error);
     });
+})
+
+router.post("/login", (req, res, next) => {
+    passport.authenticate('local',{
+        successRedirect: '/dashboard',
+        failureRedirect: '/auth/login',
+        // failureFlash: true,
+        // successFlash: true,
+        // successMessage: "Logged in Successfully",
+        // failureMessage: "Login Failed"
+    })(req, res, next)
+})
+
+router.get("/logout", (req, res) => {
+    req.logOut()
+    // req.flash("success_msg", "logged out successfully")
+    res.redirect('/auth/login')
 })
 
 module.exports = router

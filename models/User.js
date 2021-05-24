@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     },
     isAdmin: {
         type: Boolean,
-        default: false
+        default: ['NGO', 'Volunteer']
     },
     createdAt: {
         type: Date,
