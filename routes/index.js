@@ -11,9 +11,9 @@ router.get("/about-us",(req,res) =>{
     res.render('about_us')
 })
 
-router.get("/activity", ensureAuth, (req,res) =>{
-    res.render('activity')
-})
+// router.get("/activity", ensureAuth, (req,res) =>{
+//     res.render('activity')
+// })
 
 router.get("/blog",(req,res) =>{
     res.render('blog')

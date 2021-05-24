@@ -50,6 +50,7 @@ app.use(passport.session());
 
 app.use("/", require('../routes/index'))
 app.use("/auth", require('../routes/auth'))
+app.use("/activity", require('../routes/activity'))
 
 const PORT = process.env.PORT || 5000;
 
