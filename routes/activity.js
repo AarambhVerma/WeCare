@@ -69,16 +69,13 @@ router.get('/', ensureAuth, async (req, res) => {
 })
 
 //delete activity
-router.get('/delete/:id', ensureAuth, async (req, res) => {
-    try{
-        let id = req.params.id
-        console.log(id)
-        const deletedObj = await Activity.deleteOne({_id: new mongodb.ObjectID(id.toString())})
-        console.log(deletedObj)
-        res.redirect('/dashboard')
-    }catch (err) {
+router.delete('/:id', ensureAuth, async (req, res) => {
+    try {
+        await Activity.deleteOne({ _id: req.params.id })
+        res.redirect('/activity')
+    } catch (err) {
         console.error(err);
-        //res.render('error/500')
+        //return res.render('error/500')
     }
 })
 //update activity 

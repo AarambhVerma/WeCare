@@ -2,7 +2,7 @@ const express = require("express");
 const connectDB = require("./db/connection")
 const path = require("path");
 const hbs = require("hbs");
-// const { connect } = require("../routes/index");
+const methodOverride = require('method-override')
 const dotenv = require('dotenv')
 const session = require('express-session')
 const passport = require('passport')
@@ -37,6 +37,16 @@ hbs.registerHelper('validateValues', validateValues)
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
+//method override
+app.use(
+    methodOverride((req,res) => {
+        if(req.body && typeof req.body === 'object' && '_method' in req.body){
+            let method = req.body._method
+            delete req.body._method
+            return method
+        }
+    })
+)
 //express session
 app.use(session({
     secret: 'keyboard cat',
@@ -52,6 +62,7 @@ app.use(passport.session());
 app.use("/", require('../routes/index'))
 app.use("/auth", require('../routes/auth'))
 app.use("/activity", require('../routes/activity'))
+
 
 const PORT = 3000
 
