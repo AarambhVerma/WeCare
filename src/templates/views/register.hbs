@@ -44,9 +44,12 @@
         value="{{validateValues password2}}"
         />
     </div>
-    <div class="form-group">
-        <label for="isAdmin">Sign up as an admin</label>
-        <input type="checkbox" name="isAdmin" id="isAdmin" checked {{#if checked}}value="true"{{/if}}>
+    <div class="mb-3">
+        <label for="isAdmin" class="form-label">Account Type</label>            
+        <select class="form-select" id="isAdmin" name="isAdmin">
+            <option value="Volunteer" selected>Volunteer</option>
+            <option value="NGO">NGO</option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary btn-block">
         Register

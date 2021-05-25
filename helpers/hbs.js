@@ -5,5 +5,13 @@ module.exports = {
         } else{
             return ''
         }
+    },
+    customDate: date => {
+        try {
+            newDate = date.toLocaleDateString()
+            return newDate
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

@@ -16,7 +16,7 @@ router.get("/register", ensureGuest, (req,res) => {
 })
 
 router.post("/register",(req,res) => {
-    const { name, email, password, password2 } = req.body
+    const { name, email, password, password2, isAdmin } = req.body
     let errors = []
     
     if( !name || !email || !password || !password2 ){
@@ -62,7 +62,8 @@ router.post("/register",(req,res) => {
                     const newUser = new User({
                         name,
                         email,
-                        password
+                        password,
+                        isAdmin
                     })
                     // encrypt password
                     bcrypt.genSalt(10, (err, salt) => {
@@ -90,10 +91,6 @@ router.post("/login", (req, res, next) => {
     passport.authenticate('local',{
         successRedirect: '/dashboard',
         failureRedirect: '/auth/login',
-        // failureFlash: true,
-        // successFlash: true,
-        // successMessage: "Logged in Successfully",
-        // failureMessage: "Login Failed"
     })(req, res, next)
 })
 

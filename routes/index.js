@@ -41,7 +41,8 @@ router.get("/services",(req,res) =>{
 
 router.get("/dashboard", ensureAuth, (req,res) =>{
     res.render('dashboard', {
-        name: req.user.name
+        // name: req.user.name,
+        user: req.user
     })
 })
 

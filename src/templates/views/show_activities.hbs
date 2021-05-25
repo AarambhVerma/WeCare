@@ -88,13 +88,13 @@
 <div class="container justify-content-center p-4 ">
 {{#each activities}}
 <div class="card text-center bg-light my-5 border border-dark">
-  <div class="card-header text-white bg-info">
-      <h2 class="card-title ">{{name}}</h2>
+  <div class="card-header text-dark bg-success">
+      <h2 class="card-title text-light">{{name}}</h2>
   </div>
   <div class="card-body">
-    <div class="card-text m-1 p-4 justify-content-center">{{description}}</div>
-    <div class="card-text m-1 p-4 justify-content-center"> Activity location : {{location}} </div>
-    <div class="card-text m-1 p-4 justify-content-center"> Activity date : {{activityDate}} </div>
+    <div class="card-text m-1 p-1 justify-content-center">{{description}}</div>
+    <div class="card-text m-1 p-1 justify-content-center"> Activity location : {{location}} </div>
+    <div class="card-text m-1 p-1 justify-content-center"> Activity date : {{customDate activityDate}} </div>
     <div class="d-grid gap-2 d-flex justify-content-center">
     {{!-- <form action="/activity/update" method="POST" class="mx-2 p-2"><input type="submit" class="btn btn-primary" name={{_id}} id={{_id}} value="Edit"></form>
     <form action="/activity/{{_id}}" method="POST" class="mx-2 p-2"><input type="submit" class="btn btn-primary" name={{_id}} id={{_id}} value="Delete"></form>

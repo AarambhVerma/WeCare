@@ -4,7 +4,9 @@ const path = require("path");
 const hbs = require("hbs");
 const methodOverride = require('method-override')
 const dotenv = require('dotenv')
+const mongoose = require('mongoose')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const passport = require('passport')
 
 dotenv.config({path: './config.env'})
@@ -17,21 +19,24 @@ const app = express();
 require('./passport')(passport)
 
 const templatePath = path.join(__dirname,"templates/views")
+// const layoutPath = path.join(__dirname,"templates/layouts")
 const partialsPath = path.join(__dirname,"templates/partials")
 
 //built in middleware
 app.use(express.static(path.join(__dirname, "../public")))
 
 //handlebar custom helpers
-const { validateValues } = require('../helpers/hbs');
+const { validateValues, customDate } = require('../helpers/hbs');
 // const passport = require("passport");
 
 //handlebars setup
 app.set('view engine', 'hbs');
 app.set('views',templatePath)
+
 hbs.registerPartials(partialsPath)
 
 hbs.registerHelper('validateValues', validateValues)
+hbs.registerHelper('customDate', customDate)
 
 //Body Parser
 app.use(express.urlencoded({extended: false}))
@@ -52,6 +57,9 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
+    store: new MongoStore({
+        mongoUrl: process.env.MONGO_URI,
+        mongooseConnection: mongoose.connection }),
 }))
 
 //passport middleware
@@ -64,7 +72,7 @@ app.use("/auth", require('../routes/auth'))
 app.use("/activity", require('../routes/activity'))
 
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 //listen
 app.listen(PORT, () => {

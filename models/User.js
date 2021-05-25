@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
     isAdmin: {
         type: String,
         default: "Volunteer",
-        enum: ['NGO', 'Volunteer']
+        enum: ['Volunteer', 'NGO']
     },
     createdAt: {
         type: Date,
