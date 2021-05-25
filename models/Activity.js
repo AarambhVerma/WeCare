@@ -17,10 +17,14 @@ const ActivitySchema = new mongoose.Schema({
     // volunteers: {
     //     value: []
     // },
-    createdAt: {
+    activityDate: {
         type: Date,
         default: Date.now
-    }
+    },
+    location: {
+        type: String,
+        required: true
+    }  
 })
 
 const Activity = mongoose.model('Activity', ActivitySchema)

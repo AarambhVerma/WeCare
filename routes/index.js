@@ -45,4 +45,7 @@ router.get("/dashboard", ensureAuth, (req,res) =>{
     })
 })
 
+/* router.get("/show_activities", ensureAuth, (req,res) =>{
+    res.render('show_activities')
+}) */
 module.exports = router

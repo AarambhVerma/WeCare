@@ -1,0 +1,128 @@
+{{> navbar}}
+ 
+  <!--  ************************* Page Title Starts Here ************************** -->
+        
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>Show Activities</h2>
+                <!--<ul>
+                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i>Profile</li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+    
+    
+   
+  <!--  ************************* Information Starts Here ************************** -->
+
+{{!-- <div>
+  <br><br>
+
+ <center><table style="border:3px solid black; margin-left:auto; margin-right:auto; width:60%; border-color: black;" ></center>
+
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr align="center">
+        <th>Activity Name</th>
+        <td colspan="2">{{}}<input type="text" name="text" ></td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    
+    <tr align="center">
+        <th>Description</th>
+        <td colspan="2"><textarea rows="3" cols="25"></textarea></td>
+    </tr>	
+
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr align="center">
+        <td><button  type="submit" name="edit" onclick="javascript:location.href='form.html'" >&nbsp; &nbsp;Edit&nbsp; &nbsp;</button></td>
+        <td><button  type="submit" name="delete" onclick="javascript:location.href='#'" >&nbsp; &nbsp;Delete&nbsp; &nbsp;</button></td>
+        <td><button  type="submit" name="sv" onclick="javascript:location.href='sv.html'" >Show-Volunteers</button></td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+   
+</table>
+
+<br><br>  
+</div> --}} 
+
+{{!-- {{#if activities}}
+    <div class="row mb-5">
+        {{#each activities}}
+        <div class="container col-8 col-sm-10">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <p>{{name}}</p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+            <p>{{description}}</p>
+        </div>
+        {{/each}}
+    </div>
+{{else}}
+<p>No public activities available. Try adding some!</p>
+{{/if}} --}}
+{{#if activities}}
+<div class="container justify-content-center p-4 ">
+{{#each activities}}
+<div class="card text-center bg-light my-5 border border-dark">
+  <div class="card-header text-white bg-info">
+      <h2 class="card-title ">{{name}}</h2>
+  </div>
+  <div class="card-body">
+    <div class="card-text m-1 p-4 justify-content-center">{{description}}</div>
+    <div class="card-text m-1 p-4 justify-content-center"> Activity location : {{location}} </div>
+    <div class="card-text m-1 p-4 justify-content-center"> Activity date : {{activityDate}} </div>
+    <div class="d-grid gap-2 d-flex justify-content-center">
+    <form action="/activity/update" method="POST" class="mx-2 p-2"><input type="submit" class="btn btn-primary" name={{_id}} id={{_id}} value="Edit"></form>
+    <form action="/activity/delete"  class="mx-2 p-2"><input type="submit" class="btn btn-primary" name={{_id}} id={{_id}} value="Delete"></form>
+    <form action="/activity/getAllVolunteer" method="GET" class="mx-2 p-2"><input type="submit" class="btn btn-primary" >See volunteers</form>
+    </div>
+  </div>
+</div>
+{{/each}}
+</div>
+{{else}}
+<p >No public activities available. Try adding some!</p>
+{{/if}}
+
+
+
+
+
+  <!--  ************************* Footer Starts Here ************************** -->
+          
+      {{> footer}}
+    
+</body>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
+<script src="assets/plugins/slider/js/owl.carousel.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+</html>

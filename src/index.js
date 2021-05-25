@@ -48,11 +48,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//routes
 app.use("/", require('../routes/index'))
 app.use("/auth", require('../routes/auth'))
 app.use("/activity", require('../routes/activity'))
 
-const PORT = process.env.PORT || 5000;
+const PORT = 3000
 
 //listen
 app.listen(PORT, () => {
