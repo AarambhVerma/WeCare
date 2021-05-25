@@ -51,7 +51,7 @@ router.post('/add', ensureAuth,[
 //get all activities
 router.get('/', ensureAuth, async (req, res) => {
     try {
-        console.log("in get all activities")
+        // console.log("in get all activities")
         const activities = await Activity.find()
             .populate('User')
             .lean();
