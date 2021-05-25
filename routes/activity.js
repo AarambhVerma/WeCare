@@ -4,7 +4,9 @@ const { check } = require("express-validator")
 const { ensureAuth } = require('../middleware/authcheck')
 const User = require('../models/User')
 const Activity = require('../models/Activity')
-const adminAuthorID = '60ab2d22b1e0300fc4d013c9'
+// const adminAuthorID = '60ab2d22b1e0300fc4d013c9'
+
+// const { adminAuthorID1 } = User._id
 
 //Show all stories
 /* router.get('/', ensureAuth, (req, res) => {
@@ -33,13 +35,13 @@ router.post('/add', ensureAuth,[
         let activityDate = req.body.activityDate
         let activityLocation = req.body.activityLocation
         await Activity.create({
+            authorID : req.user.id,
             name : activityName,
-            description : activityDescription,
-            authorID : adminAuthorID,
+            description : activityDescription,            
             activityDate : activityDate,
             location : activityLocation
         })
-        //console.log(activityName + " " + activityDescription)
+        
         res.redirect('/dashboard')
     } catch (err) {
         console.error(err);
