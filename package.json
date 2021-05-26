@@ -2,11 +2,11 @@
   "name": "pcurd",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "dev": "nodemon src/index.js -e js,hbs"
+    "start": "node app",
+    "dev": "nodemon src/app.js"
   },
   "author": "",
   "license": "ISC",

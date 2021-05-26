@@ -1,14 +1,13 @@
 const express = require("express");
 const connectDB = require("./db/connection")
 const path = require("path");
-const hbs = require("hbs");
+const exphbs  = require('express-handlebars');
 const methodOverride = require('method-override')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
-
 dotenv.config({path: './config.env'})
 
 connectDB()
@@ -18,25 +17,22 @@ const app = express();
 //passport config
 require('./passport')(passport)
 
-const templatePath = path.join(__dirname,"templates/views")
-// const layoutPath = path.join(__dirname,"templates/layouts")
-const partialsPath = path.join(__dirname,"templates/partials")
-
 //built in middleware
 app.use(express.static(path.join(__dirname, "../public")))
 
 //handlebar custom helpers
 const { validateValues, customDate } = require('../helpers/hbs');
-// const passport = require("passport");
 
-//handlebars setup
-app.set('view engine', 'hbs');
-app.set('views',templatePath)
-
-hbs.registerPartials(partialsPath)
-
-hbs.registerHelper('validateValues', validateValues)
-hbs.registerHelper('customDate', customDate)
+// Handlebars
+app.engine('.hbs', exphbs({ 
+    helpers: {
+        validateValues,
+        customDate
+    }, 
+    defaultLayout:'main', 
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 //Body Parser
 app.use(express.urlencoded({extended: false}))
