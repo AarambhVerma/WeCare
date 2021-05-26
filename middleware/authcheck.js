@@ -12,4 +12,12 @@ module.exports = {
             res.redirect('/dashboard')
         }
     },
+
+    // ensureAdmin: function (req, res, next) {
+    //     if(req.user.isAdmin === "Volunteer"){
+    //         return next()
+    //     } else{
+    //         return 
+    //     }
+    // }
 }
