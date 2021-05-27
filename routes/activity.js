@@ -6,8 +6,8 @@ const User = require('../models/User')
 const Activity = require('../models/Activity')
 
 
-//@desc show All Activities
-//@route GET /
+// @desc    show All Activities
+// @route   GET /
 router.get('/', ensureAuth, async (req, res) => {
     try {
         // console.log("in get all activities")
@@ -25,25 +25,24 @@ router.get('/', ensureAuth, async (req, res) => {
     }
 })
 
-//@desc show add page
-//@route GET /form
+// @desc    show add page
+// @route   GET /form
 router.get("/add", ensureAuth, (req,res) =>{
     try {
         if(req.user.isAdmin === "NGO"){
             res.render('activity/add')
         } else{
             res.redirect('/dashboard')
-        }        
+        }
+          
     } catch (error) {
         console.log(error);
         res.render('error/500')
     }    
 })
 
-
-
-//@desc process of adding activity
-//@route POST /add
+// @desc     process of adding activity
+// @route    POST /
 router.post('/', ensureAuth,[
     check('req.activityName').not().isEmpty(),
     check('req.activityDescription').not().isEmpty(),
@@ -69,7 +68,6 @@ router.post('/', ensureAuth,[
     }
 })
 
-
 // @desc    Delete activity
 // @route   DELETE /:id
 router.delete('/:id', ensureAuth, async (req, res) => {
@@ -92,35 +90,8 @@ router.delete('/:id', ensureAuth, async (req, res) => {
     }
 })
 
-
-/* //@desc Show Edit page
-//@route GET activity/edit/:id
-router.get("/edit/:id", ensureAuth, async (req,res) =>{
-    const activity = await Activity.findOne({
-        _id: req.params.id
-    }).lean()
-
-    if(!Activity){
-        return res.render('error/404')
-    }
-})
-
-//@desc Update activity
-//@route PUT /form/:id
-router.put("/:id", ensureAuth, async (req,res) =>{
-    let activity = await Activity.findById(req.params.id).lean()
-    
-    if(!Activity){
-        return res.render('error/404')
-    }else{
-        return res.render('activity/edit', activity)
-    }
-
-    //tommmow methodOverride,helper,code refactor
-}) */
-
-
-
+// @desc    Show Edit page
+// @route   GET activity/edit/:id
 router.get('/edit/:id', ensureAuth, async (req, res) => {
     try {
         const activity = await Activity.findOne({
@@ -183,7 +154,53 @@ router.put('/:id', ensureAuth, async (req, res) => {
     }
 })
 
+// @desc    Show single activity
+// @route   GET /activity/:id
+router.get('/:id', ensureAuth, async (req, res) => {
+    try {
+        let activity = await Activity.findById(req.params.id)
+            .populate('user')
+            .lean()
+        let activityAuthor = await User.findById(activity.authorID)
+            .lean()
 
+        if(!activity) {
+            return res.render('error/404')
+        }
+
+        res.render('activity/single_activity', {
+            activity,
+            activityAuthor
+        })
+    } catch (err) {
+        console.error(err);
+        res.render('error/404')
+    }
+})
+
+// @desc    Show User Activities
+// @route   GET /activity/user/:userId
+// router.get('/user/:userId', ensureAuth, async (req, res) => {
+//     try {
+//         const activities = await Activity.find({
+//             authorID: req.params.authorID,            
+//         }).populate('user')
+//         .lean()
+//         console.log(authorID);
+//         console.log(activities);
+        
+
+//         res.render('activity/index', {
+//             activities
+//         })
+//     } catch (err) {
+//         console.error(err);
+//         res.render('error/500')
+//     }
+// })
+
+// @desc    404 page
+// @route   GET activity/*
 router.get("*",(req,res) => {
     res.render('error/404')
 })

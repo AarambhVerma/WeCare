@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/authcheck')
 
+
+
 //template engine route
 router.get("/",(req,res) => {
     res.render('index')
@@ -34,8 +36,8 @@ router.get("/services",(req,res) =>{
 
 router.get("/dashboard", ensureAuth, (req,res) =>{
     res.render('dashboard', {
-        // name: req.user.name,
-        user: req.user
+        name: req.user.name,
+        isAdmin: req.user.isAdmin
     })
 })
 

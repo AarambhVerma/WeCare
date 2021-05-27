@@ -15,7 +15,8 @@
     <div class="d-flex align-items-center justify-content-center container mt-4">
         <button type="submit" name="view-act" onclick="javascript:location.href='/activity'"  class="btn btn-success mr-2">View Activity</button>
         <button type="submit" name="create-act" onclick="javascript:location.href='/activity/add'" class="btn btn-success ml-2">Create New Activity</button>
-    </div
+    </div>
+    
     {{!-- <link itemprop="url" href="/assets/css/dashboard.css" /> --}}
     <div class="container">
     {{!-- <div class="container bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm"> --}}
@@ -24,12 +25,12 @@
           <div class="flex w-full items-center">
             <div class="flex items-center text-3xl text-gray-900 dark:text-white">
               <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-12 mr-4 rounded-full" alt="profile" />
-              Mert Cukuren
+              {{name}}
             </div>
             <div class="ml-auto sm:flex hidden items-center justify-end">
               <div class="text-right">
-                <div class="text-xs text-gray-400 dark:text-gray-400">Account balance:</div>
-                <div class="text-gray-900 text-lg dark:text-white">$2,794.00</div>
+                <div class="text-xs text-gray-400 dark:text-gray-400">Account Type:</div>
+                <div class="text-gray-900 text-lg dark:text-white">{{isAdmin}}</div>
               </div>
               <button class="w-8 h-8 ml-4 text-gray-400 shadow dark:text-gray-400 rounded-full flex items-center justify-center border border-gray-200 dark:border-gray-700">
                 <svg viewBox="0 0 24 24" class="w-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
