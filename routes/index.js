@@ -7,6 +7,7 @@ router.get("/",(req,res) => {
     res.render('index')
 })
 
+
 router.get("/about-us",(req,res) =>{
     res.render('about_us')
 })
@@ -49,4 +50,7 @@ router.get("/dashboard", ensureAuth, (req,res) =>{
 /* router.get("/show_activities", ensureAuth, (req,res) =>{
     res.render('show_activities')
 }) */
+
+
+
 module.exports = router

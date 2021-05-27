@@ -1,0 +1,61 @@
+/* 
+======================
+    404 page
+=======================*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+/* body{
+    
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+.error-page_404{
+    background:#fff; 
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.four_zero_four_bg{ 
+    background-position: center;
+    width:80%;
+ } 
+ 
+.error-page-heading{
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+ 
+.error-page-subheading{
+	font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.error-page-para{
+    font-size: 1rem;
+
+}
+			 
+.link_404{			 
+	color: #fff!important;
+    padding: 15px 30px;
+    /* background: #3BB44B; */
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 20px;
+}
+
+.link_404:hover{
+    background: #39ac31;
+    transform: scale(1.01);
+}

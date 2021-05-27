@@ -11,6 +11,8 @@ router.get("/add", ensureAuth, (req,res) =>{
     res.render('activity/add')
 })
 
+
+
 //@desc process of adding activity
 //@route POST /add
 router.post('/add', ensureAuth,[
@@ -34,7 +36,7 @@ router.post('/add', ensureAuth,[
         res.redirect('/dashboard')
     } catch (err) {
         console.error(err);
-        //res.render('error/500')
+        res.render('error/500')
     }
 })
 
@@ -53,7 +55,7 @@ router.get('/', ensureAuth, async (req, res) => {
         })
     } catch (err) {
         console.error(err);
-        //res.render('error/500')
+        res.render('error/500')
     }
 })
 
@@ -65,7 +67,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         res.redirect('/activity')
     } catch (err) {
         console.error(err);
-        //return res.render('error/500')
+        return res.render('error/500')
     }
 })
 
@@ -94,5 +96,9 @@ router.put("/:id", ensureAuth, async (req,res) =>{
     //tommmow methodOverride,helper,code refactor
 })
 
+
+router.get("*",(req,res) => {
+    res.render('error/404')
+})
 
 module.exports = router
