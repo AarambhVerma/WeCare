@@ -6,10 +6,7 @@
         <div class="container">
             <div class="row">
                 <h2>Show Activities</h2>
-                <!--<ul>
-                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><i class="fas fa-angle-double-right"></i>Profile</li>
-                </ul>-->
+                
             </div>
         </div>
     </div>
@@ -39,7 +36,7 @@
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit" href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
       </form>
-      <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
+      <form class="d-inline-block" action="/activity/edit/{{_id}}" method="GET" id="delete-form">
         <input type="hidden" name="_method" value="UPDATE">
         <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Update</button>
       </form>

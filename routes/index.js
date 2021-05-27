@@ -12,10 +12,6 @@ router.get("/about-us",(req,res) =>{
     res.render('about_us')
 })
 
-// router.get("/activity", ensureAuth, (req,res) =>{
-//     res.render('activity')
-// })
-
 router.get("/blog",(req,res) =>{
     res.render('blog')
 })
@@ -27,10 +23,6 @@ router.get("/contact-us",(req,res) =>{
 router.get("/gallery",(req,res) =>{
     res.render('gallery')
 })
-
-// router.get("/login",(req,res) =>{
-//     res.render('login')
-// })
 
 router.get("/profile", ensureAuth, (req,res) =>{
     res.render('profile')
@@ -46,11 +38,6 @@ router.get("/dashboard", ensureAuth, (req,res) =>{
         user: req.user
     })
 })
-
-/* router.get("/show_activities", ensureAuth, (req,res) =>{
-    res.render('show_activities')
-}) */
-
 
 
 module.exports = router
