@@ -7,6 +7,7 @@ router.get("/",(req,res) => {
     res.render('index')
 })
 
+
 router.get("/about-us",(req,res) =>{
     res.render('about_us')
 })
