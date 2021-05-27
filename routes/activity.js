@@ -20,7 +20,9 @@ router.get('/', ensureAuth, async (req, res) => {
         })
     } catch (err) {
         console.error(err);
-        res.render('error/500')
+        res.render('error/500', {
+            layout: 'error'
+        })
     }
 })
 
@@ -36,7 +38,9 @@ router.get("/add", ensureAuth, (req,res) =>{
           
     } catch (error) {
         console.log(error);
-        res.render('error/500')
+        res.render('error/500', {
+            layout: 'error'
+        })
     }    
 })
 
@@ -63,7 +67,9 @@ router.post('/', ensureAuth,[
         res.redirect('/dashboard')
     } catch (err) {
         console.error(err);
-        res.render('error/500')
+        res.render('error/500', {
+            layout: 'error'
+        })
     }
 })
 
@@ -85,7 +91,9 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         
     } catch (err) {
         console.error(err);
-        return res.render('error/500')
+        return res.render('error/500', {
+            layout: 'error'
+        })
     }
 })
 
@@ -98,7 +106,9 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         }).lean()
     
         if(!activity){
-            res.render('error/404')
+            res.render('error/404', {
+                layout: 'error'
+            })
         }
     
         // check to see if the user is the owner of the activity
@@ -114,7 +124,9 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         }
     } catch (err) {
         console.error(err);
-        return res.render('error/500')
+        return res.render('error/500', {
+            layout: 'error'
+        })
     }
 })
 
@@ -125,7 +137,9 @@ router.put('/:id', ensureAuth, async (req, res) => {
         let activity = await Activity.findById(req.params.id).lean()
 
         if(!activity){
-            return res.render('error/404')
+            return res.render('error/404', {
+                layout: 'error'
+            })
         }
         // console.log(activity)
 
@@ -149,7 +163,9 @@ router.put('/:id', ensureAuth, async (req, res) => {
         }
     } catch (err) {
         console.error(err);
-        return res.render('error/500')
+        return res.render('error/500', {
+            layout: 'error'
+        })
     }
 })
 
@@ -173,7 +189,9 @@ router.get('/:id', ensureAuth, async (req, res) => {
         })
     } catch (err) {
         console.error(err);
-        res.render('error/404')
+        res.render('error/404', {
+            layout: 'error'
+        })
     }
 })
 
@@ -201,7 +219,9 @@ router.get('/:id', ensureAuth, async (req, res) => {
 // @desc    404 page
 // @route   GET activity/*
 router.get("*",(req,res) => {
-    res.render('error/404')
+    res.render('error/404', {
+        layout: 'error'
+    })
 })
 
 module.exports = router

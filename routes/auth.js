@@ -101,7 +101,9 @@ router.get("/logout", (req, res) => {
 })
 
 router.get("*",(req,res) => {
-    res.render('error/404')
+    res.render('error/404', {
+        layout: 'error'
+    })
 })
 
 module.exports = router

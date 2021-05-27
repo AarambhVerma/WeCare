@@ -68,7 +68,9 @@ app.use("/auth", require('../routes/auth'))
 app.use("/activity", require('../routes/activity'))
 
 app.get("*",(req,res) => {
-    res.render('error/404')
+    res.render('error/404', {
+        layout: 'error'
+    })
 })
 
 const PORT = process.env.PORT || 3000
