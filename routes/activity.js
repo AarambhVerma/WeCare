@@ -4,26 +4,15 @@ const { check } = require("express-validator")
 const { ensureAuth } = require('../middleware/authcheck')
 const User = require('../models/User')
 const Activity = require('../models/Activity')
-// const adminAuthorID = '60ab2d22b1e0300fc4d013c9'
 
-// const { adminAuthorID1 } = User._id
-
-//Show all stories
-/* router.get('/', ensureAuth, (req, res) => {
-    res.render('Activity')
-})
- */
-
-//Add activities
-router.get("/form", ensureAuth, (req,res) =>{
-    res.render('form')
+//@desc show add page
+//@route GET /form
+router.get("/add", ensureAuth, (req,res) =>{
+    res.render('activity/add')
 })
 
-
-//get activity detail
-/* router.get("/add",ensureAuth,(req,res) => {
-    res.redirect('/activity/add/')
-}) */
+//@desc process of adding activity
+//@route POST /add
 router.post('/add', ensureAuth,[
     check('req.activityName').not().isEmpty(),
     check('req.activityDescription').not().isEmpty(),
@@ -49,19 +38,17 @@ router.post('/add', ensureAuth,[
     }
 })
 
-
-//get all activities
+//@desc show All Activities
+//@route GET /
 router.get('/', ensureAuth, async (req, res) => {
     try {
         // console.log("in get all activities")
         const activities = await Activity.find()
             .populate('User')
-            .lean();
-            /* .sort({ createdAt: 'desc'}) */
-            
+            .lean(); 
            // console.log(activities);
 
-        res.render('show_activities', {
+        res.render('activity/show_activities', {
             activities,
         })
     } catch (err) {
@@ -70,7 +57,8 @@ router.get('/', ensureAuth, async (req, res) => {
     }
 })
 
-//delete activity
+// @desc    Delete story
+// @route   DELETE /:id
 router.delete('/:id', ensureAuth, async (req, res) => {
     try {
         await Activity.deleteOne({ _id: req.params.id })
@@ -80,6 +68,31 @@ router.delete('/:id', ensureAuth, async (req, res) => {
         //return res.render('error/500')
     }
 })
-//update activity 
+
+
+//@desc Show Edit page
+//@route GET /form/:id
+router.get("/form/:id", ensureAuth, async (req,res) =>{
+    const activity = await Activity.findOne({
+        _id: req.params.id
+    }).lean()
+
+    if(!Activity){
+        return res.render('error/404')
+    }
+})
+
+//@desc Update activity
+//@route PUT /form/:id
+router.put("/:id", ensureAuth, async (req,res) =>{
+    let activity = await Activity.findById(req.params.id).lean()
+    
+    if(!Activity){
+        return res.render('error/404')
+    }
+
+    //tommmow methodOverride,helper,code refactor
+})
+
 
 module.exports = router
