@@ -79,7 +79,7 @@
 {{!-- rows="6" --}}
                     <div class="mb-3">
                       <label for="activityDate" class="form-label">Scheduled Date</label>
-                      <input type="date" class="form-control" id="date-picker" name="activityDate" size="50" value="{{validateValues activity.activityDate}}"/>
+                      <input type="date" class="form-control" id="date-picker" name="activityDate" size="50" value="{{customDate activity.activityDate}}"/>
                     </div>
                     
                     <div class="mb-3">
@@ -87,7 +87,8 @@
                       <input type="text" class="form-control" id="place" name="activityLocation" size="50"/ value="{{validateValues activity.location}}">
                     </div>
                     
-                    <button type="submit" class="host-button btn btn-success btn-lg" >Submit</button>
+                    <button type="submit" class="host-button btn btn-success" >Submit</button>
+                    <button type="submit" class="host-button btn btn-danger" href="/dashboard">Cancel</button>
 
         </form>
 

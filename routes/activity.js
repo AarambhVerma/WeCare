@@ -10,11 +10,10 @@ const Activity = require('../models/Activity')
 // @route   GET /
 router.get('/', ensureAuth, async (req, res) => {
     try {
-        // console.log("in get all activities")
         const activities = await Activity.find()
             .populate('User')
-            .lean(); 
-           // console.log(activities);
+            .sort({ createdAt: 'desc'})
+            .lean();
 
         res.render('activity/show_activities', {
             activities,
@@ -128,7 +127,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
         if(!activity){
             return res.render('error/404')
         }
-        console.log(activity)
+        // console.log(activity)
 
         // check to see if the user is the owner of the activity
         if(activity.authorID != req.user.id){
@@ -145,7 +144,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
                 new: true,
                 runValidators: true
             })
-            console.log(req.body)
+            // console.log(req.body)
             res.redirect('/dashboard')
         }
     } catch (err) {
