@@ -100,7 +100,8 @@ form.sign-up-form{
     transition: 0.5s;
 }
 
-.input-field input{
+
+.input-field input , .input-field select{
     background: none;
     outline: none;
     border:none;
