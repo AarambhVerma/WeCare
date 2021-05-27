@@ -65,34 +65,29 @@
       <div class="act-js-content">
         <h1 class="heading-1 mb-4">Activity Details</h1>
 
-        <form action="/activity/add" method="POST" class="host-form" id='host-form'>
-                    {{!-- <div class="mb-3">
-                      <label for="organizationName" class="form-label">Organization Name</label>
-                      <input type="text" class="form-control" id="Oname" name="organizationName" size="45"/>
-                    </div> --}}
-                    
+        <form action="/activity/{{activity._id}}" method="POST" class="host-form" id='host-form'>
+                    <input type="hidden" name="_method" value="PUT" >
                     <div class="mb-3">
                       <label for="activityName" class="form-label">Activity Name</label>
-                      <input type="text" class="form-control" id="name" name="activityName" size="50"/>
+                      <input type="text" class="form-control" id="name" name="activityName" size="50" value="{{validateValues activity.name}}"/>
                     </div>
                     
                     <div class="mb-3">
                       <label for="activityDescription" class="form-label">Description</label>
-                      <textarea class="form-control" id="desc" name="activityDescription" rows="6" size="50"></textarea>
+                      <textarea class="form-control" id="desc" name="activityDescription" size="50" value="{{activity.description}}"></textarea>
                     </div>
-
+{{!-- rows="6" --}}
                     <div class="mb-3">
                       <label for="activityDate" class="form-label">Scheduled Date</label>
-                      <input type="date" class="form-control" id="date-picker" name="activityDate" size="50"/>
+                      <input type="date" class="form-control" id="date-picker" name="activityDate" size="50" value="{{validateValues activity.activityDate}}"/>
                     </div>
                     
                     <div class="mb-3">
                       <label for="activityLocation" class="form-label">Location</label>
-                      <input type="text" class="form-control" id="place" name="activityLocation" size="50"/>
+                      <input type="text" class="form-control" id="place" name="activityLocation" size="50"/ value="{{validateValues activity.location}}">
                     </div>
                     
-                   
-                    <button type="submit" class="host-button btn btn-success btn-lg" onclick="">Submit</button>
+                    <button type="submit" class="host-button btn btn-success btn-lg" >Submit</button>
 
         </form>
 
@@ -100,5 +95,4 @@
     </div>
 
     
- 
  
