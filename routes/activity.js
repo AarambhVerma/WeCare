@@ -21,14 +21,23 @@ router.get('/', ensureAuth, async (req, res) => {
         })
     } catch (err) {
         console.error(err);
-        //res.render('error/500')
+        res.render('error/500')
     }
 })
 
 //@desc show add page
 //@route GET /form
 router.get("/add", ensureAuth, (req,res) =>{
-    res.render('activity/add')
+    try {
+        if(req.user.isAdmin === "NGO"){
+            res.render('activity/add')
+        } else{
+            res.redirect('/dashboard')
+        }        
+    } catch (error) {
+        console.log(error);
+        res.render('error/500')
+    }    
 })
 
 
