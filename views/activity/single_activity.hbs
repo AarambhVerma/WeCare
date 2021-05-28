@@ -1,12 +1,12 @@
 <h1>Activity Details</h1>
 <p>{{activity.name}}</p>
 <p>{{activity.description}}</p>
-{{!-- <p>{{activity.authorID}}</p> --}}
 <p>{{customDate activity.activityDate}}</p>
 <p>{{activity.location}}</p>
 
 <h1>Author Details</h1>
-<p>{{activity._id}}</p>
-<p>{{activityAuthor.name}}</p>
-<p>{{activityAuthor.isAdmin}}</p>
-<p>{{activityAuthor.email}}</p>
+<p>{{activity.authorID.name}}</p>
+<p>{{activity.authorID.isAdmin}}</p>
+<p>{{activity.authorID.email}}</p>
+
+<a href="/activity/user/{{activity.authorID._id}}" class="btn btn-primary">More From {{activity.authorID.name}}</a> 

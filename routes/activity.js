@@ -11,7 +11,7 @@ const Activity = require('../models/Activity')
 router.get('/', ensureAuth, async (req, res) => {
     try {
         const activities = await Activity.find()
-            .populate('User')
+            .populate('authorID')
             .sort({ createdAt: 'desc'})
             .lean();
 
@@ -168,18 +168,14 @@ router.put('/:id', ensureAuth, async (req, res) => {
 router.get('/:id', ensureAuth, async (req, res) => {
     try {
         let activity = await Activity.findById(req.params.id)
-            .populate('user')
+            .populate('authorID')
             .lean()
-        let activityAuthor = await User.findById(activity.authorID)
-            .lean()
-
         if(!activity) {
             return res.render('error/404')
         }
 
         res.render('activity/single_activity', {
-            activity,
-            activityAuthor
+            activity
         })
     } catch (err) {
         console.error(err);
@@ -189,26 +185,22 @@ router.get('/:id', ensureAuth, async (req, res) => {
     }
 })
 
-// @desc    Show User Activities
-// @route   GET /activity/user/:userId
-// router.get('/user/:userId', ensureAuth, async (req, res) => {
-//     try {
-//         const activities = await Activity.find({
-//             authorID: req.params.authorID,            
-//         }).populate('user')
-//         .lean()
-//         console.log(authorID);
-//         console.log(activities);
-        
-
-//         res.render('activity/index', {
-//             activities
-//         })
-//     } catch (err) {
-//         console.error(err);
-//         res.render('error/500')
-//     }
-// })
+//@desc    Show User Activities
+//@route   GET /activity/user/:userId
+router.get('/user/:userId', ensureAuth, async (req, res) => {
+    try {
+        const activities = await Activity.find({
+            authorID: req.params.userId,            
+        }).populate('authorID')
+        .lean()
+        res.render('activity/more_from_author', {
+            activities
+        })
+    } catch (err) {
+        console.error(err);
+        res.render('error/500')
+    }
+})
 
 // @desc    404 page
 // @route   GET activity/*
