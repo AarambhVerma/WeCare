@@ -114,9 +114,6 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         // check to see if the user is the owner of the activity
         if(activity.authorID != req.user.id){
             res.redirect('/activity')
-            /* res.render('activity/edit', {
-                activity,
-            }) */
         } else{
             res.render('activity/edit', {
                 activity,
@@ -141,8 +138,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
                 layout: 'error'
             })
         }
-        // console.log(activity)
-
         // check to see if the user is the owner of the activity
         if(activity.authorID != req.user.id){
             res.redirect('/activity')
@@ -158,7 +153,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
                 new: true,
                 runValidators: true
             })
-            // console.log(req.body)
             res.redirect('/dashboard')
         }
     } catch (err) {

@@ -27,10 +27,6 @@
     <div class="card-text m-1 p-1 justify-content-center"> Activity location : {{location}} </div>
     <div class="card-text m-1 p-1 justify-content-center"> Activity date : {{customDate activityDate}} </div>
     <div class="d-grid gap-2 d-flex justify-content-center">
-    {{!-- <form action="/activity/update" method="POST" class="mx-2 p-2"><input type="submit" class="btn btn-primary" name={{_id}} id={{_id}} value="Edit"></form>
-    <form action="/activity/{{_id}}" method="POST" class="mx-2 p-2"><input type="submit" class="btn btn-primary" name={{_id}} id={{_id}} value="Delete"></form>
-    <form action="/activity/getAllVolunteer" method="GET" class="mx-2 p-2"><input type="submit" class="btn btn-primary" value="See volunteers" ></form>
-     --}}
     <div class="p-2">
       <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
         <input type="hidden" name="_method" value="DELETE">
