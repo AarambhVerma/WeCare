@@ -61,7 +61,8 @@ router.post('/', ensureAuth,[
             name : activityName,
             description : activityDescription,            
             activityDate : activityDate,
-            location : activityLocation
+            location : activityLocation,
+            volunteers: []
         })
         
         res.redirect('/dashboard')
@@ -193,12 +194,50 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
             authorID: req.params.userId,            
         }).populate('authorID')
         .lean()
+
+        const author = await User.findOne({
+            _id: req.params.userId
+        })
+            .lean()
+
         res.render('activity/more_from_author', {
-            activities
+            activities,
+            authorName: author.name
         })
     } catch (err) {
         console.error(err);
         res.render('error/500')
+    }
+})
+
+// @desc    Enroll in activtiy
+// @route   POST activity/enroll/:id
+router.post("/:id", ensureAuth, async (req, res) => {
+    try {
+        let activity = await Activity.findById(req.params.id).lean()
+
+        if(!activity){
+            return res.render('error/404', {
+                layout: 'error'
+            })
+        }
+        console.log(activity.volunteers);
+        let volunteerList = activity.volunteers
+        volunteerList = volunteerList.push(req.user.id)
+        
+        activity = await Activity.findOneAndUpdate({ _id: req.params.id }, {
+            volunteers: voluneteerList
+        } , {
+            new: true,
+            runValidators: true
+        })
+        res.redirect('/dashboard')
+        
+    } catch (err) {
+        console.error(err);
+        return res.render('error/500', {
+            layout: 'error'
+        })
     }
 })
 

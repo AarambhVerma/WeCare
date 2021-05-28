@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
     list-style: none;
-
+    scroll-behavior: smooth;
 }
 img {
     max-width: 100%;
@@ -78,10 +78,7 @@ h1,h2,h3,h4,h5,h6{
      
       color: #545454;
 }
-strong{
-    
 
-}
 body{
     background-color:#f1f1f145 !important;
     -webkit-font-smoothing: antialiased;

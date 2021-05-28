@@ -5,7 +5,7 @@ const { ensureAuth, ensureGuest } = require('../middleware/authcheck')
 // @desc    Show Index Page
 // @route   GET /
 router.get("/",(req,res) => {
-    res.render('index',{
+    res.render('index', {
         user : req.user
     })
 })
@@ -13,11 +13,12 @@ router.get("/",(req,res) => {
 // @desc    Show User Dashboard
 // @route   GET /
 router.get("/dashboard", ensureAuth, (req,res) =>{
+    console.log(req.user);
     res.render('dashboard', {
-        // user : req.user, // TODO navbar conflict 
+        user : req.user,
         name: req.user.name,
         isAdmin: req.user.isAdmin
-    })
+    })    
 })
 
 module.exports = router

@@ -33,15 +33,23 @@
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit" href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
       </form>
+
       <form class="d-inline-block" action="/activity/edit/{{_id}}" method="GET" id="delete-form">
         <input type="hidden" name="_method" value="UPDATE">
         <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Update</button>
       </form>
+
       <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
         <input type="hidden" name="_method" value="SEE-ALL-VOLUNTEERS">
         <button type="submit" href="#" class="btn btn-info"><i class="fas fa-trash"></i>Volunteers</button>
       </form>
+
       <a href="/activity/{{_id}}" class="btn btn-primary"><i class="fas fa-book-reader"></i> Read more</a>
+
+      <form class="d-inline-block" action="/activity/{{_id}}" method="POST">
+        {{!-- <input type="hidden" name="_method" value="UPDATE"> --}}
+        <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Enroll</button>
+      </form>
     </div>
      
     </div>

@@ -1,17 +1,30 @@
-<h1 class="display-4 mb-1">More from {{authorID.name}}</h1>
+<h1 class="display-4 mb-1">More from {{authorName}}</h1>
 {{#if activities}}
-<div class="row mb-5">
-    {{#each activities}}
-    <div class="col-lg-4 col-md-6 col-sm-12 my-2">
-        <div class="card border-0">
+    <div class="row">
+        {{#each activities}}            
+                <div class="card col-lg-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title">{{name}}</h3>
+                        <p class="card-text">{{description}}<br>Location: {{location}}<br>Scheduled Date: {{customDate activityDate}}</p>
+                    </div>
+                </div>
+        {{/each}}
+    </div>
+    
+    
+
+    {{!-- <div class="card">
+        <div class="card border-1">            
             <div class="card-body">
-                <h3 class="card-title">{{name}}</h3>             
+                <h3 class="card-title">{{name}}</h3> 
+                <div class="card-text">{{description}}</div> 
+                <div class="card-text">Location: {{location}}</div>  
+                <div class="card-text">Scheduled Date: {{customDate activityDate}}</div>        
             </div>
         </div>
-    </div>
-    {{/each}}
-</div>
+    </div> --}}
+    
+
 {{else}}
-<p>No public stories available. Try adding some!</p>
+<p>No public activities available from the folloeing user</p>
 {{/if}}
-<h1>HELLO</h1>
