@@ -14,10 +14,11 @@ const ActivitySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    volunteers: {
-        type: Array,
-        value: []
-    },
+    volunteers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        require: true,
+        ref:'volunteer'
+    }],
     activityDate: {
         type: Date,
         default: Date.now

@@ -214,30 +214,23 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
 // @route   POST activity/enroll/:id
 router.post("/:id", ensureAuth, async (req, res) => {
     try {
-        let activity = await Activity.findById(req.params.id).lean()
-
-        if(!activity){
-            return res.render('error/404', {
-                layout: 'error'
-            })
+        if(req.user.isAdmin !== "NGO"){
+            const enrollID = await Activity.findOneAndUpdate(
+                { 
+                    _id : req.params.id,
+                },
+                {
+                    $addToSet: {
+                        volunteers : req.user.id,
+                    },
+                })
+                res.redirect('/dashboard')
+        }else{
+            res.redirect('/activity')
         }
-        console.log(activity.volunteers);
-        let volunteerList = activity.volunteers
-        volunteerList = volunteerList.push(req.user.id)
-        
-        activity = await Activity.findOneAndUpdate({ _id: req.params.id }, {
-            volunteers: voluneteerList
-        } , {
-            new: true,
-            runValidators: true
-        })
-        res.redirect('/dashboard')
         
     } catch (err) {
-        console.error(err);
-        return res.render('error/500', {
-            layout: 'error'
-        })
+        res.render('error/500')
     }
 })
 
