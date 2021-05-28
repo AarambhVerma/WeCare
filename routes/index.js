@@ -50,9 +50,9 @@ router.get("/services",(req,res) =>{
 
 router.get("/dashboard", ensureAuth, (req,res) =>{
     res.render('dashboard', {
-        user : req.user
-        /* name: req.user.name,
-        isAdmin: req.user.isAdmin */
+        // user : req.user, // TODO navbar conflict 
+        name: req.user.name,
+        isAdmin: req.user.isAdmin
     })
 })
 
