@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
     },
     userActivities: [{
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        require: false,
         ref:'Activity'
     }],
 })

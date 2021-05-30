@@ -16,7 +16,7 @@ const ActivitySchema = new mongoose.Schema({
     },
     volunteers: [{
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        require: false,
         ref:'volunteer'
     }],
     activityDate: {
