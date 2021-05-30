@@ -1,3 +1,5 @@
+const Activity = require("../models/Activity")
+
 module.exports = {
     validateValues: value => {
         if (value != undefined){
@@ -24,6 +26,12 @@ module.exports = {
         }else {
             return options.inverse(this)
         }
+    },
+    ensureAuthor: (user, activities) => {
+        if(user._id === activities.authorID){
+            return true
+        } else{
+            return false
+        }
     }
-    
 }
