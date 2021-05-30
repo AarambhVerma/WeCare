@@ -212,7 +212,7 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
 
 // @desc    Enroll in activtiy
 // @route   POST activity/enroll/:id
-router.post("/:id", ensureAuth, async (req, res) => {
+router.post("/enroll/:id", ensureAuth, async (req, res) => {
     try {
         if(req.user.isAdmin !== "NGO"){
             const enrollID = await Activity.findOneAndUpdate(
@@ -224,6 +224,16 @@ router.post("/:id", ensureAuth, async (req, res) => {
                         volunteers : req.user.id,
                     },
                 })
+            const activityID = await User.findOneAndUpdate(
+                {
+                    _id : req.user.id,
+                },
+                {
+                    $addToSet: {
+                        userActivities : req.params.id,
+                    }
+                }
+            )
                 res.redirect('/dashboard')
         }else{
             res.redirect('/activity')
@@ -234,6 +244,42 @@ router.post("/:id", ensureAuth, async (req, res) => {
     }
 })
 
+// @desc    unEnroll in activtiy
+// @route   Delete activity/unenroll/:id
+router.delete("/unenroll/:id", ensureAuth, async (req, res) => {
+    console.log("in unenroll")
+    try {
+        if(req.user.isAdmin !== "NGO")
+        {
+            console.log("deleted")
+            const enrollID = await Activity.findOneAndUpdate(
+                { 
+                    _id : req.params.id,
+                },
+                {
+                    $pull: {
+                        volunteers : req.user.id,
+                    },
+                })
+            const activityID = await User.findOneAndUpdate(
+                {
+                    _id : req.user.id,
+                },
+                {
+                    $pull: {
+                        userActivities : req.params.id,
+                    }
+                }
+            )
+                res.redirect('/dashboard')
+        }else{
+            res.redirect('/activity')
+        }
+        
+    } catch (err) {
+        res.render('error/500')
+    }
+})
 // @desc    404 page
 // @route   GET activity/*
 router.get("*",(req,res) => {

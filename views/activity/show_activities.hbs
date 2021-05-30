@@ -46,8 +46,13 @@
 
       <a href="/activity/{{_id}}" class="btn btn-primary"><i class="fas fa-book-reader"></i> Read more</a>
 
-      <form class="d-inline-block" action="/activity/{{_id}}" method="POST">
+      <form class="d-inline-block" action="/activity/enroll/{{_id}}" method="POST">
         <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Enroll</button>
+      </form>
+      
+      <form class="d-inline-block" action="/activity/unenroll/{{_id}}" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Unenroll</button>
       </form>
     </div>
      
