@@ -224,6 +224,16 @@ router.post("/:id", ensureAuth, async (req, res) => {
                         volunteers : req.user.id,
                     },
                 })
+            const activityID = await User.findOneAndUpdate(
+                {
+                    _id : req.user.id,
+                },
+                {
+                    $addToSet: {
+                        userActivities : req.params.id,
+                    }
+                }
+            )
                 res.redirect('/dashboard')
         }else{
             res.redirect('/activity')

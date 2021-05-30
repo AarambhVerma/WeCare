@@ -17,6 +17,13 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
+    },
+    checkAdmin: (val,options) => {
+        if(val === 'NGO'){
+            return options.fn(this)
+        }else {
+            return options.inverse(this)
+        }
     }
     
 }

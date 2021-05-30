@@ -21,7 +21,12 @@ const UserSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    userActivities: [{
+        type: mongoose.Schema.Types.ObjectId,
+        require: true,
+        ref:'Activity'
+    }],
 })
 
 const User = mongoose.model('User', UserSchema)
