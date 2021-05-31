@@ -4,10 +4,10 @@ Author:  WeCare Team
 Version: 1.0
 Description: WeCare website for a Service Based model for NGO's
 ======================================================================= */
-/* ===================================== Import Variables ================================== */
+/* Import Variables */
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700);
 @import url(https://fonts.googleapis.com/css?family=Arimo:300,400,400italic,700,700italic);
-/* ===================================== Basic CSS ==================================== */
+/* Basic CSS */
 * {
   margin: 0px;
   padding: 0px;
@@ -331,13 +331,17 @@ body {
   }
 }
 
-/* =================== Header Style Starts Here =================== */
+/* Navbar Style */
 .header-section .nav-item {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.4);
 }
 
-/* =================== Slider Style Starts Here =================== */
+.header-section .nav-item:hover {
+  color: #3BB44B !important;
+}
+
+/* Slider Style Starts Here */
 .carousel .overlay {
   position: absolute;
   width: 100%;
@@ -372,7 +376,7 @@ body {
   }
 }
 
-/* ===================================== About CSS ================================== */
+/* About Us */
 .about-us {
   background-color: #edf1f5;
   padding: 50px;
@@ -397,10 +401,10 @@ body {
 .about-us .text-part p {
   text-indent: 20px;
   margin-bottom: 15px;
-  line-height: 27px;
+  line-height: 1.7;
   font-weight: 500;
   text-align: justify;
-  font-size: .9rem;
+  font-size: 1.1rem;
 }
 
 .about-us .image-part .about-quick-box .about-qcard {
@@ -435,45 +439,7 @@ body {
   color: #21d7d9;
 }
 
-/* ===================================== Events Home CSS ================================== */
-.events {
-  background-color: #efefef2e;
-  padding: 50px;
-}
-
-@media screen and (max-width: 940px) {
-  .events {
-    padding: 30px 10px;
-  }
-}
-
-.events .event-ro .event-box {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.events .event-ro .event-box img {
-  margin-bottom: 20px;
-}
-
-.events .event-ro .event-box h4 {
-  font-size: 18px;
-}
-
-/*.events .event-ro .event-box .raises {
-    margin-bottom: 10px;
-}
-
-.events .event-ro .event-box .raises span {
-    color: #71b61b;
-}
-*/
-.events .event-ro .event-box .desic {
-  font-size: 13px;
-  margin-bottom: 15px;
-}
-
-/* ===================================== Mission Vision CSS ================================== */
+/* Mission Vision CSS */
 .mission-vision {
   background-color: #FFF;
 }
@@ -502,7 +468,22 @@ body {
   margin: auto;
 }
 
-/* ===================================== Charity Number CSS ================================== */
+.mission-vision .mv-det h2 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.mission-vision .mv-det p {
+  text-indent: 20px;
+  margin-bottom: 15px;
+  line-height: 1.7;
+  font-weight: 500;
+  text-align: justify;
+  font-size: 1.1rem;
+}
+
+/* Charity Number CSS */
 .doctor-message {
   background-image: url("../images/slider/slider-2.jpg");
   background-attachment: fixed;
@@ -511,6 +492,9 @@ body {
 
 .doctor-message .session-title h2 {
   color: #FFF;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 .doctor-message .inner-lay {
@@ -538,10 +522,49 @@ body {
   color: #FFF;
 }
 
-/* ===================================== Our Blog CSS ================================== */
+/* Gallery Style */
+.gallery-filter {
+  width: 100%;
+  text-align: center;
+}
+
+.gallery {
+  padding: 50px;
+  padding: 30px;
+  background-color: #edf1f5;
+}
+
+@media screen and (max-width: 940px) {
+  .gallery {
+    padding: 30px 10px;
+  }
+}
+
+.gallery-title {
+  font-size: 36px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 70px;
+}
+
+.port-image {
+  width: 100%;
+}
+
+.gallery_product {
+  margin-bottom: 30px;
+}
+
+/* Our Blog CSS */
 .our-blog {
   background-color: #FDFDFD;
   padding: 40px;
+}
+
+.blog-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 70px;
 }
 
 @media screen and (max-width: 967px) {
@@ -591,7 +614,37 @@ body {
   color: #FFFFFF;
 }
 
-/* ===================================== Footer CSS ================================== */
+/* Our Team Starts Here */
+.our-team {
+  padding: 50px;
+  background-color: #edf1f5;
+}
+
+@media screen and (max-width: 940px) {
+  .our-team {
+    padding: 30px 10px;
+  }
+}
+
+.our-team .our-team-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Contact Us */
+.contact-us-title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.address-card .address-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Footer CSS */
 .footer-new .mail, .footer-new .phone, .footer-new .facebook, .footer-new .twitter, .footer-new .instagram, .footer-new .linkedin, .footer-new .pinterest {
   color: rgba(255, 255, 255, 0.9) !important;
   text-decoration: underline;
@@ -626,138 +679,5 @@ body {
 .footer-new .pinterest:hover {
   color: #e60023 !important;
   text-decoration: none;
-}
-
-/* ===================================== Our Team Starts Here ===================================== */
-.our-team {
-  padding: 50px;
-  background-color: #cccccc1c;
-}
-
-@media screen and (max-width: 940px) {
-  .our-team {
-    padding: 30px 10px;
-  }
-}
-
-.our-team .team-row {
-  margin-top: 20px;
-}
-
-.our-team .team-row .single-usr {
-  box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 2px 6px 0 rgba(206, 206, 238, 0.54);
-  margin-bottom: 20px;
-}
-
-.our-team .team-row .single-usr img {
-  width: 100%;
-}
-
-.our-team .team-row .single-usr .det-o {
-  padding: 20px;
-  background-color: #3BB44B;
-}
-
-.our-team .team-row .single-usr .det-o h4 {
-  color: #FFF;
-  margin-bottom: 0px;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.our-team .team-row .single-usr .det-o i {
-  color: #FFF;
-  font-size: .8rem;
-}
-
-.nav-box {
-  margin-top: 50px;
-  border-radius: 50px;
-  border: 1px solid #ccc;
-}
-
-.nav-box ul li {
-  float: left;
-  padding: 15px;
-}
-
-.nav-box ul li a {
-  color: #FFFF;
-}
-
-.nav-box .btn {
-  margin-top: 7px;
-  float: right;
-  border-radius: 50px;
-}
-
-/* ===================================== Gallery Style  ================================== */
-.gallery-filter {
-  width: 100%;
-  text-align: center;
-}
-
-.gallery-filter .btn {
-  background-color: #FFF;
-}
-
-.gallery {
-  padding: 50px;
-  padding: 30px;
-  background-color: #FFF;
-}
-
-@media screen and (max-width: 940px) {
-  .gallery {
-    padding: 30px 10px;
-  }
-}
-
-.gallery-title {
-  font-size: 36px;
-  color: #00ab9f;
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 70px;
-}
-
-.gallery-title:after {
-  content: "";
-  position: absolute;
-  width: 7.5%;
-  left: 46.5%;
-  height: 45px;
-  border-bottom: 1px solid #3BB44B;
-}
-
-.filter-button {
-  font-size: 18px;
-  border: 1px solid #3BB44B;
-  border-radius: 5px;
-  text-align: center;
-  color: #3BB44B;
-  margin-bottom: 30px;
-}
-
-.filter-button:hover {
-  font-size: 18px;
-  border: 1px solid #3BB44B;
-  border-radius: 5px;
-  text-align: center;
-  color: #ffffff;
-  background-color: #3BB44B;
-}
-
-.btn-default:active .filter-button:active {
-  background-color: #3BB44B;
-  color: white;
-}
-
-.port-image {
-  width: 100%;
-}
-
-.gallery_product {
-  margin-bottom: 30px;
 }
 /*# sourceMappingURL=style.css.map */

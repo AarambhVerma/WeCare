@@ -5,349 +5,28 @@ Version: 1.0
 Description: WeCare website for a Service Based model for NGO's
 ======================================================================= */
 
-/* ===================================== Import Variables ================================== */
+/* Import Variables */
+
 @import 'variable';
-/* ===================================== Basic CSS ==================================== */
+
+/* Basic CSS */
+
 @import 'base/basic_setup';
 
-/* =================== Header Style Starts Here =================== */
-// header {
-//     @include shado-1();
-//     background-color: #FFF;
-//     width: 100%;
-//     z-index: 99;
-
-    
-
-//     .header-top {
-//         background-color: #fff;
-//         border-bottom: 1px solid #d3d7cea6;
-//         padding: 7px;
-
-//         .col-det {
-//             .ulleft {
-//                 li {
-//                     float: left;
-//                     padding: 12px;
-//                     color: #686968;
-//                     font-size: .9rem;
-
-//                     i {
-//                         margin-right: 5px;
-//                         color: #bfbfbf;
-//                     }
-
-//                     span {
-//                         margin-left: 15px;
-//                     }
-//                 }
-//             }
-
-//             .ulright {
-//                 float: right;
-
-//                 li {
-//                     float: left;
-//                     padding: 10px;
-//                     color: #d3d7ce;
-//                     font-size: 1rem;
-//                     font-weight: 600;
-
-//                     i {
-//                         margin-right: 5px;
-//                         color: #8c8a8a;
-//                     }
-
-//                     small {
-//                         color: #8c8a8a;
-//                         font-weight: 600;
-//                     }
-
-//                     span {
-//                         margin-left: 15px;
-//                     }
-//                 }
-//             }
-//         }
-
-//         .btn-bhed {
-//             padding-top: 7px;
-//             text-align: right;
-
-//             .btn {
-//                 padding: 5px 23px;
-//                 border-radius: 50px;
-//                 margin-left: 5px;
-//             }
-//         }
-
-//     }
-
-//     .header-bottom {
-
-        
-
-//         @media screen and (max-width: 991px) {
-//             padding: 0px;
-//         }
-
-//         padding: 6px;
-//         background-color: #fff;
-        
-//         .logo {
-//             margin: auto;
-//             img{
-//                 height: 50px;
-//                 width: auto;
-
-//                 @media screen and (max-width: 991px) {
-//                     height: 40px;
-//                 }
-//             }
-//         }
-//     }
-
-//     .nav-col {
-//         .navbad {
-//             @media screen and (max-width: 991px) {
-//                 width: 100%;
-//             }
-
-//             display: block;
-//             float: right;
-
-//             li {
-//                 padding: 15px 15px;
-
-//                 @media screen and (max-width: 1005px) {
-//                     padding: 15px 12px;
-//                 }
-
-//                 font-weight: 700;
-//                 font-size: .9rem;
-//                 float: left;
-
-//                 @media screen and (max-width: 991px) {
-//                     float: none;
-//                     width: 100%;
-//                     padding: 10px;
-
-//                     // a {
-                       
-//                     // }
-//                 }
-
-//                 a {
-//                     color: #686968 !important;
-//                     border: 1px solid #CCC;
-//                     border-radius: 50px;
-
-//                     &:hover {
-//                         background-color: $color-primary;
-//                         color: #fff !important;
-//                     }
-
-//                 }
-//             }
-
-//             .nav-btn {
-
-//                 float: right;
-//             }
-//         }
-//     }
-
-//     .small-menu {
-//         float: right;
-//         color: #686968;
-//         font-size: 1.8rem;
-//         position: absolute;
-//         right: 13px;
-//         top: 19px;
-//     }
-// }
-
-// .navbar {
-
-//     @media screen and (max-width: 767px) {
-//         padding: 0px;
-//     }
-// }
-
-// .navbar-toggler {
-//     position: absolute;
-//     right: 0px;
-//     top: -40px;
-
-//     @media screen and (max-width: 767px) {
-//         top: -50px;
-
-
-//     }
-// }
-
-// .scroll-to-fixed-fixed {
-//     background-color: #FFF;
-//     @include shado-1();
-// }
-
-// .scroll-to-fixed-fixed {
-//     padding: 5px !important;
-// }
+/* Navbar Style */
 
 .header-section{
     .nav-item{
         font-weight: bold;
         color: rgba(0, 0, 0, 0.4);
+
+        &:hover{
+            color: #3BB44B !important;
+        }
     }
 }
 
-
-/* =================== Slider Style Starts Here =================== */
-
-// .slider {
-//     position: relative;
-
-// }
-
-// .slider-captions {
-//     position: absolute;
-//     bottom: 132px;
-//     text-align: center;
-// }
-
-// @media screen and (max-width: 1050px) {
-//     .slider-captions {
-//         bottom: 100px !important;
-//     }
-
-//     // width: 90%;
-//     // text-align: center;
-//     // float: none;
-//     // margin: auto;
-
-//     .slider-captions .slider-title {
-//         font-size: 42px;
-//     }
-// }
-
-// @media screen and (max-width: 810px) {
-//     .slider-captions {
-//         bottom: 50px !important;
-//     }
-
-//     .slider-captions .slider-title {
-//         font-size: 32px;
-//     }
-// }
-
-// @media screen and (max-width: 572px) {
-//     .slider-captions {
-//         display: none;
-//     }
-// }
-
-// .slider-title {
-//     font-size: 66px;
-//     font-weight: 600;
-//     color: #fff;
-//     letter-spacing: -3px;
-// }
-
-// .slider-text {
-//     margin-bottom: 20px;
-//     color: #fff;
-// }
-
-// .slider-img {
-//     background: -moz-linear-gradient(top, rgba(45, 32, 44, 0.3) 0%, rgba(45, 32, 44, 0.1) 100%);
-//     background: -webkit-linear-gradient(top, rgba(45, 32, 44, 0.3) 0%, rgba(45, 32, 44, 0.1) 100%);
-//     background: linear-gradient(to bottom, rgba(45, 32, 44, 0.3) 0%, rgba(45, 32, 44, 0.1) 100%);
-//     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc1b2429', endColorstr='#cc1b2429', GradientType=0);
-//     position: relative;
-// }
-
-// .slider-img img {
-//     position: relative;
-//     z-index: -1;
-// }
-
-// .slider .owl-nav .owl-prev,
-// .slider .owl-nav .owl-next {
-//     color: #fff;
-//     display: inline-block;
-//     zoom: 1;
-//     margin: 5px;
-//     padding: 6px 12px;
-//     font-size: 22px;
-//     -webkit-border-radius: 23px;
-//     -moz-border-radius: 23px;
-//     border-radius: 23px;
-//     background: transparent;
-//     filter: Alpha(Opacity=50);
-//     line-height: 1;
-//     border: 2px solid #fff;
-// }
-
-// .owl-controls.clickable .owl-buttons div:hover {
-//     filter: Alpha(Opacity=100);
-//     opacity: 1;
-//     text-decoration: none;
-//     background-color: #fff;
-// }
-
-// .slider .owl-nav .owl-prev {
-//     position: absolute;
-//     top: 40%;
-//     left: 25px;
-// }
-
-// .slider .owl-nav .owl-next {
-//     position: absolute;
-//     top: 40%;
-//     right: 25px;
-// }
-
-// .slider .owl-dots .owl-dot {
-//     position: relative;
-//     text-align: center;
-//     bottom: 40px;
-//     max-width: 1140px;
-//     margin: 0 auto;
-// }
-
-// .slider .owl-dots .owl-dot span {
-//     display: block;
-//     width: 14px;
-//     height: 14px;
-//     margin: 0px 0px 10px 10px;
-//     filter: Alpha(Opacity=50);
-//     /*IE7 fix*/
-//     opacity: 0.8;
-//     -webkit-border-radius: 20px;
-//     -moz-border-radius: 20px;
-//     border-radius: 20px;
-//     border: 2px solid #fff;
-//     float: left;
-// }
-
-// .slider .owl-dots .owl-dot.active span {
-//     background-color: #fff;
-// }
-
-// .slider .owl-dots .owl-dot.active span,
-// .slider .owl-controls.clickable .owl-page:hover span {
-//     background-color: #fff;
-//     filter: Alpha(Opacity=100);
-//     /*IE7 fix*/
-//     opacity: 1;
-// }
-
-// .slider .col-lg-offset-2 {
-//     float: none;
-//     margin: auto;
-// }
-
+/* Slider Style Starts Here */
 
 .carousel{
     
@@ -380,7 +59,7 @@ Description: WeCare website for a Service Based model for NGO's
     }
 }
 
-/* ===================================== About CSS ================================== */
+/* About Us */
 
 .about-us {
     background-color: #edf1f5;
@@ -400,10 +79,10 @@ Description: WeCare website for a Service Based model for NGO's
         p {
             text-indent: 20px;
             margin-bottom: 15px;
-            line-height: 27px;
+            line-height: 1.7;
             font-weight: 500;
             text-align: justify;
-            font-size: .9rem;
+            font-size: 1.1rem;
         }
 
     }
@@ -446,49 +125,7 @@ Description: WeCare website for a Service Based model for NGO's
     }
 }
 
-
-/* ===================================== Events Home CSS ================================== */
-.events {
-    background-color: #efefef2e;
-    padding: 50px;
-}
-
-@media screen and (max-width: 940px) {
-    .events {
-        padding: 30px 10px;
-    }
-}
-
-.events .event-ro .event-box {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.events .event-ro .event-box img {
-    margin-bottom: 20px;   
-}
-
-.events .event-ro .event-box h4 {
-    font-size: 18px;
-  
-}
-
-/*.events .event-ro .event-box .raises {
-    margin-bottom: 10px;
-}
-
-.events .event-ro .event-box .raises span {
-    color: #71b61b;
-}
-*/
-
-.events .event-ro .event-box .desic {
-    font-size: 13px;
-    margin-bottom: 15px;
-    
-}
-
-/* ===================================== Mission Vision CSS ================================== */
+/* Mission Vision CSS */
 
 .mission-vision {
     background-color: #FFF;
@@ -503,10 +140,23 @@ Description: WeCare website for a Service Based model for NGO's
 
     .mv-det {
         margin: auto;
+        h2 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        p {
+            text-indent: 20px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            font-weight: 500;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
     }
 }
 
-/* ===================================== Charity Number CSS ================================== */
+/* Charity Number CSS */
 .doctor-message {
     background-image: url("../images/slider/slider-2.jpg");
     background-attachment: fixed;
@@ -514,6 +164,9 @@ Description: WeCare website for a Service Based model for NGO's
 
     .session-title h2 {
         color: #FFF;
+        font-weight: 600;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
     }
 }
 
@@ -542,11 +195,43 @@ Description: WeCare website for a Service Based model for NGO's
     color: #FFF;
 }
 
+/* Gallery Style */
+.gallery-filter {
+    width: 100%;
+    text-align: center; 
+}
 
-/* ===================================== Our Blog CSS ================================== */
+.gallery {
+    @include big-padding();
+    padding: 30px;
+    background-color: #edf1f5;
+}
+
+.gallery-title {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 70px; 
+}
+
+.port-image {
+  width: 100%;
+}
+
+.gallery_product {
+  margin-bottom: 30px; 
+}
+
+/* Our Blog CSS */
 .our-blog {
     background-color: #FDFDFD;
     padding: 40px;
+}
+
+.blog-title{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 70px; 
 }
 
 @media screen and (max-width: 967px) {
@@ -596,97 +281,34 @@ Description: WeCare website for a Service Based model for NGO's
     color: #FFFFFF;
 }
 
+/* Our Team Starts Here */
+.our-team {
+    @include big-padding();
+    background-color: #edf1f5;
 
-/* ===================================== Footer CSS ================================== */
-// .footer {
-//     padding: 50px;
-//     padding-bottom: 50px;
-//     background-color: #1e2436;
-//     color: #FFF;
-// }
+    .our-team-title{
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 1rem; 
+    }
+}
 
-// @media screen and (max-width: 940px) {
-//     .footer {
-//         padding: 30px 10px;
-//     }
-// }
+/* Contact Us */
+.contact-us-title{
+    font-size: 2rem;
+    font-weight: 600;
+}
 
-// .footer h2 {
-//     font-size: 26px;
-//     margin-top: 10px;
-//     color: #FFF;
-//     font-size: 1.2rem;
-//     margin-bottom: 15px;
-// }
+.address-card{
 
-// .footer p {
-//     text-align: justify;
-//     text-indent: 20px;
-//     font-size: .9rem;
-// }
+    .address-card-title{
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1;
+    }
+}
 
-// .footer .link-list li {
-//     padding: 10px;
-//     border-bottom: 1px solid #6C6C6C;
-//     font-size: .9rem;
-// }
-
-// .footer .link-list li a {
-//     color: #FFF;
-// }
-
-// .footer .link-list li i {
-//     float: right;
-// }
-
-// .footer .map-img {
-//     font-weight: 600;
-//     font-size: 17px;
-//     padding-left: 20px;
-// }
-
-// .footer address {
-//     font-weight: 300;
-// }
-
-// .footer address a {
-//     color: #FFF;
-//     font-size: 1rem;
-//     font-family: "mouse-300", Arial, Helvetica, sans-serif;
-// }
-
-// .copy {
-//     padding: 20px;
-//    background: #1a202f;
-//     color: #FFF;
-// }
-
-// .copy a {
-//     color: #FFF;
-// }
-
-// .copy span {
-//     float: right;
-// }
-
-// .copy span i {
-//     margin-right: 20px;
-// }
-
-// .kf-2 {
-//     background-color: #FCFCFC;
-//     padding: 50px;
-// }
-
-// @media screen and (max-width: 940px) {
-//     .kf-2 {
-//         padding: 30px 10px;
-//     }
-// }
-
-// .kf-2 .single-key {
-//     box-shadow: 0 2px 3px 0 rgba(218, 218, 253, 0.35), 0 0px 3px 0 rgba(206, 206, 238, 0.35);
-// }
+/* Footer CSS */
 
 .footer-new{
     // position: absolute;
@@ -742,116 +364,115 @@ Description: WeCare website for a Service Based model for NGO's
     }
 }
 
-/* ===================================== Our Team Starts Here ===================================== */
-.our-team {
-    @include big-padding();
-    background-color: #cccccc1c;
 
-    .team-row {
-        margin-top: 20px;
+// .new-profiles{
+//     .card-container{        
+//         height: 100vh;
+//         width: 100vw;
+//         max-height: 800px;
+//         max-width: 1280px;
+//         min-height: 600px;
+//         min-width: 1000px;
+//         display: flex;
+//         justify-content: space-around;
+//         align-items: center;
+//         margin: 0 auto;
+//     }
+//     .border{
+//         height: 369px;
+//         width: 290px;
+//         background: transparent;
+//         border-radius: 10px;
+//         transition: border 1s;
+//         position: relative;
+    
+//         &:hover{
+//             border: 1px solid white;
+//         }
+//     }
+//     .card{
+//         height: 379px;
+//         width: 300px;
+//         background: grey;
+//         border-radius: 10px;
+//         transition: background 0.8s;
+//         overflow: hidden;
+//         background: black;
+//         box-shadow: 0 70px 63px -60px #000000;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         position: relative;
+//     }
+//     .card0{
+//         background: url('assets/images/team/mansi.jpeg') center center no-repeat;
+//         background-size: 300px;
 
-        .single-usr {
-            @include shado-3();
-            margin-bottom: 20px;
+//         &:hover{
+//             background: url('assets/images/team/shrey.jpeg') left center no-repeat;
+//             background-size: 600px;
 
-            img {
-                width: 100%;
-            }
+//             h2{
+//             opacity: 1;
+//             }
+//             .fa{
+//             opacity: 1;
+//             }
+//         }
+//     }
+//     .card1{
+//         background: url('assets/images/team/vaidehi.jpeg') center center no-repeat;
+//         background-size: 300px;
 
-            .det-o {
-                padding: 20px;
-                background-color: $color-primary;
+//         &:hover{
+//             background: url('assets/images/team/shrey.jpeg') left center no-repeat;
+//             background-size: 600px;
 
-                h4 {
-                    color: #FFF;
-                    margin-bottom: 0px;
-                    font-size: 1.1rem;
-                    font-weight: 600;
-                }
+//             h2{
+//                 opacity: 1;
+//             }
+//             .fa{
+//                 opacity: 1;
+//             }
+//         }
+//     }
+//     .card2{
+//         background: url('assets/images/team/shrey.jpeg') center center no-repeat;
+//         background-size: 300px;
 
-                i {
-                    color: #FFF;
-                    font-size: .8rem;
-                }
-            }
+//         &:hover{
+//             background: url('assets/images/team/mansi.jpeg') left center no-repeat;
+//             background-size: 600px;
 
-        }
-    }
-}
-
-
-.nav-box{
-    margin-top: 50px;
-    border-radius: 50px;
-    border: 1px solid #ccc;
-    ul{
-        li{
-            float: left;
-            padding: 15px;
-            a{
-                color: #FFFF;
-            }
-        }
-    }
-    .btn{
-        margin-top: 7px;
-        float: right;
-        border-radius: 50px;
-    }
-}
-
-
-/* ===================================== Gallery Style  ================================== */
-.gallery-filter {
-  width: 100%;
-  text-align: center; }
-  .gallery-filter .btn {
-    background-color: #FFF; }
-
-.gallery {
-    @include big-padding();
-  padding: 30px;
-  background-color: #FFF; }
-
-.gallery-title {
-  font-size: 36px;
-  color: #00ab9f;
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 70px; }
-
-.gallery-title:after {
-  content: "";
-  position: absolute;
-  width: 7.5%;
-  left: 46.5%;
-  height: 45px;
-  border-bottom: 1px solid $color-primary; }
-
-.filter-button {
-  font-size: 18px;
-  border: 1px solid $color-primary;
-  border-radius: 5px;
-  text-align: center;
-  color: $color-primary;
-  margin-bottom: 30px; }
-
-.filter-button:hover {
-  font-size: 18px;
-  border: 1px solid $color-primary;
-  border-radius: 5px;
-  text-align: center;
-  color: #ffffff;
-  background-color: $color-primary; }
-
-.btn-default:active .filter-button:active {
-  background-color: $color-primary;
-  color: white; }
-
-.port-image {
-  width: 100%; }
-
-.gallery_product {
-  margin-bottom: 30px; }
-
-
+//             h2{
+//             opacity: 1;
+//             }
+//             .fa{
+//             opacity: 1;
+//             }
+//         }
+//     }
+//     h2{
+//         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+//         color: white;
+//         margin: 20px;
+//         opacity: 0;
+//         transition: opacity 1s;
+//     }
+//     .fa{
+//         opacity: 0;
+//         transition: opacity 1s;
+//     }
+//     .icons{
+//         position: absolute;
+//         fill: #fff;
+//         color: #fff;
+//         height: 130px;
+//         top: 226px;
+//         width: 50px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         justify-content: space-around;
+//     }
+// }
