@@ -6,7 +6,8 @@ const User = require('../models/User')
 // @route   GET /
 router.get("/",(req,res) => {
     res.render('index', {
-        user : req.user
+        user : req.user,
+        isIndexPage: true
     })
 })
 

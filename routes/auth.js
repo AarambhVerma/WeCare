@@ -8,11 +8,17 @@ const { ensureAuth, ensureGuest } = require('../middleware/authcheck')
 const User = require('../models/User')
 
 router.get("/login", ensureGuest, (req,res) => {
-    res.render('login')
+    res.render('login', {
+        layout: "login",
+        islogin: true
+    })
 })
 
 router.get("/register", ensureGuest, (req,res) => {
-    res.render('register')
+    res.render('login', {
+        layout: "login",
+        islogin: false
+    })
 })
 
 router.post("/register",(req,res) => {

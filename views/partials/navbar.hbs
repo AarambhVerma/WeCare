@@ -1,64 +1,26 @@
-<header class="continer-fluid ">
-    <div  class="header-top">
-        <div class="container">
-            <div class="row col-det">
-                <div class="col-lg-6 d-none d-lg-block">
-                    <ul class="ulleft">
-                        <li><i class="far fa-envelope"></i></li>
-                        <li><i class="fas fa-phone-volume"></i></li>
-                        <li><i class="fab fa-facebook-square"></i></li>
-                        <li><i class="fab fa-twitter-square"></i></li>
-                        <li><i class="fab fa-instagram"></i></li>
-                        <li><i class="fab fa-linkedin"></i></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-3 d-none d-md-block col-md-6 btn-bhed">
-                    {{#if user}}
-                        <button class="btn btn-sm btn-success" onclick="javascript:location.href='auth/logout'">Logout</button>
-                        <button class="btn btn-sm btn-success" onclick="javascript:location.href='/dashboard'">Dashboard</button>
-                    {{else}}
-                        <button class="btn btn-sm btn-success" onclick="javascript:location.href='auth/login'">Join Us</button>
-                    {{/if}}
-                        {{!-- <button class="btn btn-sm btn-success" onclick="javascript:location.href='auth/logout'">Logout</button> --}}
-                </div>
-            </div>
+<nav class="header-section navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="assets/images/logo2.png" width="180" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">        
+            <a class="nav-item nav-link m-2" href="/">Home</a>
+            {{#if isIndexPage}}
+            <a class="nav-item nav-link m-2" href="/#about-us">About Us</a>
+            <a class="nav-item nav-link m-2" href="/#portfolio">Gallery</a>
+            <a class="nav-item nav-link m-2" href="/#blog">Blog</a>
+            <a class="nav-item nav-link m-2" href="/#contact-us">Contact Us</a> 
+            {{/if}}       
+            {{#if user}}
+            <a class="nav-item nav-link m-2" href="/activity">Public Activities</a>
+            <a class="nav-item nav-link m-2" href="/dashboard">Dashboard</a>
+            <a class="nav-item nav-link m-2" href="/auth/logout">Logout</a>
+            {{else}}
+            <a class="nav-item nav-link m-2" href="/auth/login">Sign In</a>
+            {{/if}}
         </div>
     </div>
-    <div id="menu-jk" class="header-bottom">
-        <div class="container">
-            <div class="row nav-row">
-                <div class="col-lg-3 col-md-12 logo">
-                    <a href="/"><img src="assets/images/logo2.jpeg">
-                        <a data-toggle="collapse" data-target="#menu" href="#menu">
-                            <i class="fas d-block d-lg-none  small-menu fa-bars"></i>
-                        </a>
-                    </a>
-                </div>
-                <div id="menu" class="col-lg-9 col-md-12 d-none d-lg-block nav-col">
-                    <ul class="navbad">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#about-us">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#portfolio">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#blog">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#contact-us">Contact US</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/activity">Activities</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div> 
-</header>
-
+</nav>

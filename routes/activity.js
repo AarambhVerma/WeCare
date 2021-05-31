@@ -6,6 +6,7 @@ const User = require('../models/User')
 const Activity = require('../models/Activity')
 
 
+
 // @desc    show All Activities
 // @route   GET /
 router.get('/', ensureAuth, async (req, res) => {
@@ -14,9 +15,13 @@ router.get('/', ensureAuth, async (req, res) => {
             .populate('authorID')
             .sort({ createdAt: 'desc'})
             .lean();
+        
+        const user = User.findById(req.user._id)
 
         res.render('activity/show_activities', {
             activities,
+            user,
+            layout: 'activity'
         })
     } catch (err) {
         console.error(err);
@@ -31,7 +36,9 @@ router.get('/', ensureAuth, async (req, res) => {
 router.get("/add", ensureAuth, (req,res) =>{
     try {
         if(req.user.isAdmin === "NGO"){
-            res.render('activity/add')
+            res.render('activity/add', {
+                layout: 'activity'
+            })
         } else{
             res.redirect('/dashboard')
         }
@@ -171,12 +178,16 @@ router.get('/:id', ensureAuth, async (req, res) => {
         let activity = await Activity.findById(req.params.id)
             .populate('authorID')
             .lean()
+
+        const user = await User.findById(req.user._id)
         if(!activity) {
             return res.render('error/404')
         }
 
         res.render('activity/single_activity', {
-            activity
+            activity,
+            layout: 'activity',
+            user
         })
     } catch (err) {
         console.error(err);
@@ -197,12 +208,15 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
 
         const author = await User.findOne({
             _id: req.params.userId
-        })
-            .lean()
+        }).lean()
+        
+        const user = await User.findById(req.user._id)
 
         res.render('activity/more_from_author', {
             activities,
-            authorName: author.name
+            authorName: author.name,
+            user,
+            layout: 'activity'
         })
     } catch (err) {
         console.error(err);
