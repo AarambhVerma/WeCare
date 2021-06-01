@@ -249,7 +249,7 @@ router.post("/enroll/:id", ensureAuth, async (req, res) => {
                     }
                 }
             )        
-            res.redirect('/dashboard')
+            res.redirect('/activity')
         }else{
             res.redirect('/activity')
         }        
@@ -261,7 +261,7 @@ router.post("/enroll/:id", ensureAuth, async (req, res) => {
 // @desc    unEnroll in activtiy
 // @route   Delete activity/unenroll/:id
 router.delete("/unenroll/:id", ensureAuth, async (req, res) => {
-    console.log("in unenroll")
+    
     try {
         if(req.user.isAdmin !== "NGO")
         {

@@ -586,6 +586,90 @@ body {
   margin-bottom: 1rem;
 }
 
+.our-team .card {
+  border-radius: 20px;
+  position: relative;
+  transition: 0.8s;
+}
+
+.our-team .card img {
+  border-radius: 12px;
+  margin: auto;
+}
+
+.our-team .card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.our-team .card .card-border {
+  border-radius: 12px;
+  position: absolute;
+  width: 96%;
+  height: 96%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.our-team .card .card-title {
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  font-size: 2rem;
+  color: white;
+  display: none;
+  font-weight: bold;
+}
+
+.our-team .card .card-title span {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  display: none;
+}
+
+.our-team .card .contact-icons {
+  position: absolute;
+  bottom: 6%;
+  left: 6%;
+  color: white;
+  display: none;
+}
+
+.our-team .card .contact-icons a {
+  display: block;
+  padding: 8px 0;
+}
+
+.our-team .card .contact-icons a i {
+  font-size: 20px;
+}
+
+.our-team .card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.our-team .card:hover .card-border {
+  border: 2px solid white;
+}
+
+.our-team .card:hover .card-title {
+  display: block;
+}
+
+.our-team .card:hover .card-title span {
+  display: block;
+}
+
+.our-team .card:hover .contact-icons {
+  display: block;
+}
+
 /* Contact Us */
 .contact-us-title {
   font-size: 2rem;
@@ -633,51 +717,5 @@ body {
 .footer-new .pinterest:hover {
   color: #e60023 !important;
   text-decoration: none;
-}
-
-.new-our-team .card {
-  border-radius: 20px;
-  position: relative;
-  transition: overlay 0.8s;
-}
-
-.new-our-team .card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-}
-
-.new-our-team .card .card-border {
-  border-radius: 12px;
-  position: absolute;
-  width: 96%;
-  height: 96%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.new-our-team .card .card-title {
-  position: absolute;
-  top: 6%;
-  left: 6%;
-  font-size: 1rem;
-  color: white;
-  display: none;
-}
-
-.new-our-team .card:hover .overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.new-our-team .card:hover .card-border {
-  border: 2px solid white;
-}
-
-.new-our-team .card:hover .card-title {
-  display: block;
 }
 /*# sourceMappingURL=style.css.map */
