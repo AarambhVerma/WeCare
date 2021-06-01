@@ -1,26 +1,26 @@
 {{#if activities}}
 
-<div class="container justify-content-center p-4 ">
+<div class="container justify-content-center">
   <h1 class="text-center">Public Activities</h1>
-  <div class="row mb-5">
+  <div class="row my-5">
     {{#each activities}}
-    <div class="card bg-light border border-dark m-2 ml-0" style="width: 18rem;">
-      <div class="card-header text-dark bg-success">
-        <h2 class="card-title text-light">{{name}}</h2>
-      </div>
+    <div class="col-md-4 my-2">
+
+    
+    <div class="card bg-light border border-dark">
       <div class="card-body">
+        <h2 class="card-title text-success">{{name}}</h2>
         <div class="card-text my-1 py-1 justify-content-center">{{truncate description 100}}</div>
-        <div class="card-text my-1 py-1 justify-content-center"> Activity Organizer : {{authorID.name}} </div>
-        <div class="card-text my-1 py-1 justify-content-center"> Activity location : {{location}} </div>
-        <div class="card-text my-1 py-1 justify-content-center"> Activity date : {{customDate activityDate}} </div>
+        <div class="card-subtitle mt-1 justify-content-center"><i class="fas fa-users"></i> {{authorID.name}} </div>
+        <div class="card-subtitle mt-1 justify-content-center"><i class="fas fa-location-arrow"></i> {{location}} </div>
+        <div class="card-subtitle mt-1 justify-content-center"><i class="fas fa-clock"></i> {{customDate activityDate}} </div>
         {{!-- <div class="d-grid gap-2 d-flex justify-content-center"> --}}
+       
 
-          
+          <div class="button-groups mt-1">
 
-          <div class="button-groups">
-
-            {{#checkAdmin user}}
-            <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
+            {{!-- {{#checkAdmin user}} --}}
+            {{!-- <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
               <input type="hidden" name="_method" value="DELETE">
               <button type="submit" href="#" class="btn btn-danger my-1 mr-1"><i class="fas fa-trash"></i> Delete</button>
             </form>
@@ -28,8 +28,9 @@
             <form class="d-inline-block" action="/activity/edit/{{_id}}" method="GET" id="delete-form">
               <input type="hidden" name="_method" value="UPDATE">
               <button type="submit" href="#" class="btn btn-warning my-1 mr-1"><i class="fas fa-trash"></i> Update</button>
-            </form>            
-            {{/checkAdmin}}
+            </form>             --}}
+            {{!-- {{/checkAdmin}} --}}
+
             {{!-- <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
               <input type="hidden" name="_method" value="SEE-ALL-VOLUNTEERS">
               <button type="submit" href="#" class="btn btn-info my-1 mr-1"><i class="fas fa-trash"></i>Volunteers</button>
@@ -37,6 +38,8 @@
             
             <a href="/activity/{{_id}}" class="btn btn-primary my-1 mr-1"><i class="fas fa-book-reader"></i> Read more</a> 
             
+
+            {{!-- {{#checkVolunteer user}} --}}
             <form class="d-inline-block" action="/activity/unenroll/{{_id}}" method="POST">
               <input type="hidden" name="_method" value="DELETE">
               <button type="submit" href="#" class="btn btn-warning my-1 mr-1"><i class="fas fa-trash"></i> Unenroll</button>
@@ -45,11 +48,12 @@
             <form class="d-inline-block" action="/activity/enroll/{{_id}}" method="POST">
               <button type="submit" href="#" class="btn btn-warning my-1 mr-1"><i class="fas fa-trash"></i> Enroll</button>
             </form>           
-            
+            {{!-- {{/checkVolunteer}} --}}
                  
           </div>
         {{!-- </div> --}}
       </div>
+    </div>
     </div>
     {{/each}}
   </div>

@@ -246,53 +246,6 @@ body {
   font-weight: 600;
 }
 
-.btn-success {
-  background-color: #51be78;
-  border-color: #51be78;
-}
-
-.btn-success:hover {
-  background-color: #51be78 !important;
-  border-color: #51be78 !important;
-}
-
-.btn-success:active {
-  background-color: #51be78 !important;
-  border-color: #51be78 !important;
-}
-
-.btn-success:focus {
-  background-color: #51be78 !important;
-  border-color: #51be78 !important;
-  box-shadow: none !important;
-}
-
-.btn-primary {
-  background-color: #3BB44B;
-  border-color: #3BB44B;
-}
-
-.btn-primary:hover {
-  background-color: #3BB44B !important;
-  border-color: #3BB44B !important;
-}
-
-.btn-primary:active {
-  background-color: #3BB44B !important;
-  border-color: #3BB44B !important;
-}
-
-.btn-primary:focus {
-  background-color: #3BB44B !important;
-  border-color: #3BB44B !important;
-  box-shadow: none !important;
-}
-
-.btn {
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  border-radius: 2px;
-}
-
 .form-control:focus {
   box-shadow: none !important;
   border: 1px solid #CCC;
@@ -680,5 +633,51 @@ body {
 .footer-new .pinterest:hover {
   color: #e60023 !important;
   text-decoration: none;
+}
+
+.new-our-team .card {
+  border-radius: 20px;
+  position: relative;
+  transition: overlay 0.8s;
+}
+
+.new-our-team .card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.new-our-team .card .card-border {
+  border-radius: 12px;
+  position: absolute;
+  width: 96%;
+  height: 96%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.new-our-team .card .card-title {
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  font-size: 1rem;
+  color: white;
+  display: none;
+}
+
+.new-our-team .card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.new-our-team .card:hover .card-border {
+  border: 2px solid white;
+}
+
+.new-our-team .card:hover .card-title {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */
