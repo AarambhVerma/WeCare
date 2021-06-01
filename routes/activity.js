@@ -36,10 +36,13 @@ router.get('/', ensureAuth, async (req, res) => {
 router.get("/add", ensureAuth, (req,res) =>{
     try {
         if(req.user.isAdmin === "NGO"){
+            const user = req.user.isAdmin
             res.render('activity/add', {
+                user,
                 layout: 'activity'
             })
         } else{
+            
             res.redirect('/dashboard')
         }
           
@@ -123,7 +126,9 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         if(activity.authorID != req.user.id){
             res.redirect('/activity')
         } else{
+            const user = req.user.isAdmin
             res.render('activity/edit', {
+                user,
                 activity,
             })
         }
