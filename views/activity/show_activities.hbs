@@ -1,74 +1,50 @@
-
- 
-  <!--  ************************* Page Title Starts Here ************************** -->
-        
-    {{!-- <div class="page-nav no-margin row">
-        <div class="container">
-            <div class="row">
-                <h2>Show Activities</h2>
-                
-            </div>
-        </div>
-    </div> --}}
-    
-    
-   
-  <!--  ************************* Information Starts Here ************************** -->
-
 {{#if activities}}
 <div class="container justify-content-center p-4 ">
-{{#each activities}}
-<div class="card text-center bg-light my-5 border border-dark">
-  <div class="card-header text-dark bg-success">
-      <h2 class="card-title text-light">{{name}}</h2>
-  </div>
-  <div class="card-body">
-    <div class="card-text m-1 p-1 justify-content-center">{{description}}</div>
-    <div class="card-text m-1 p-1 justify-content-center"> Activity Organizer : {{authorID.name}} </div>
-    <div class="card-text m-1 p-1 justify-content-center"> Activity location : {{location}} </div>
-    <div class="card-text m-1 p-1 justify-content-center"> Activity date : {{customDate activityDate}} </div>
-    <div class="d-grid gap-2 d-flex justify-content-center">
-    <div class="p-2">
-      
-      
-      <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit" href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
-      </form>
+  <div class="row mb-5">  
+    {{#each activities}}
+    <div class="card bg-light border border-dark m-2 ml-0" style="width: 18rem;">
+      <div class="card-header text-dark bg-success">
+        <h2 class="card-title text-light">{{name}}</h2>
+      </div>
+      <div class="card-body">
+        <div class="card-text my-1 py-1 justify-content-center">{{truncate description 100}}</div>
+        <div class="card-text my-1 py-1 justify-content-center"> Activity Organizer : {{authorID.name}} </div>
+        <div class="card-text my-1 py-1 justify-content-center"> Activity location : {{location}} </div>
+        <div class="card-text my-1 py-1 justify-content-center"> Activity date : {{customDate activityDate}} </div>
+        {{!-- <div class="d-grid gap-2 d-flex justify-content-center"> --}}
+          <div class="button-groups">
+            <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+            </form>
 
-      <form class="d-inline-block" action="/activity/edit/{{_id}}" method="GET" id="delete-form">
-        <input type="hidden" name="_method" value="UPDATE">
-        <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Update</button>
-      </form>
-      
-      <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
-        <input type="hidden" name="_method" value="SEE-ALL-VOLUNTEERS">
-        <button type="submit" href="#" class="btn btn-info"><i class="fas fa-trash"></i>Volunteers</button>
-      </form>
-      
-      <a href="/activity/{{_id}}" class="btn btn-primary"><i class="fas fa-book-reader"></i> Read more</a>
-      
-      
-      <form class="d-inline-block" action="/activity/enroll/{{_id}}" method="POST">
-        <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Enroll</button>
-      </form>
-      
-      <form class="d-inline-block" action="/activity/unenroll/{{_id}}" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Unenroll</button>
-      </form>
-      
+            <form class="d-inline-block" action="/activity/edit/{{_id}}" method="GET" id="delete-form">
+              <input type="hidden" name="_method" value="UPDATE">
+              <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Update</button>
+            </form>
+            
+            <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
+              <input type="hidden" name="_method" value="SEE-ALL-VOLUNTEERS">
+              <button type="submit" href="#" class="btn btn-info"><i class="fas fa-trash"></i>Volunteers</button>
+            </form>
+            
+            <a href="/activity/{{_id}}" class="btn btn-primary"><i class="fas fa-book-reader"></i> Read more</a>        
+            
+            <form class="d-inline-block" action="/activity/enroll/{{_id}}" method="POST">
+              <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Enroll</button>
+            </form>
+            
+            <form class="d-inline-block" action="/activity/unenroll/{{_id}}" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" href="#" class="btn btn-warning"><i class="fas fa-trash"></i> Unenroll</button>
+            </form>     
+          </div>
+        {{!-- </div> --}}
+      </div>
     </div>
-     
-    </div>
+    {{/each}}
   </div>
-</div>
-{{/each}}
 </div>
 {{else}}
-<p >No public activities available. Try adding some!</p>
+<p>No public activities available. Try adding some!</p>
 {{/if}}
-
-  <!--  ************************* Footer Starts Here ************************** -->
-          
-
