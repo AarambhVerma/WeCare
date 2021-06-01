@@ -1,32 +1,30 @@
 
-
+<div class="container">
 <h1 class="display-4 mb-1">More from {{authorName}}</h1>
 {{#if activities}}
     <div class="row">
-        {{#each activities}}            
-                <div class="card col-lg-4" style="width: 18rem;">
+        {{#each activities}}
+            <div class="col-md-4 my-2">       
+                <div class="card bg-light border border-success">
                     <div class="card-body">
-                        <h3 class="card-title">{{name}}</h3>
-                        <p class="card-text">{{truncate description 100}}<br>Location: {{location}}<br>Scheduled Date: {{customDate activityDate}}</p>
+                        <h2 class="card-title text-success">{{name}}</h2>
+                        <div class="card-text my-1 py-1 justify-content-center">{{truncate description 100}}</div>
+                        <div class="card-subtitle mt-1 justify-content-center"><i class="fas fa-users"></i> {{authorID.name}} </div>
+                        <div class="card-subtitle mt-1 justify-content-center"><i class="fas fa-location-arrow"></i> {{location}} </div>
+                        <div class="card-subtitle mt-1 justify-content-center"><i class="fas fa-clock"></i> {{customDate activityDate}} </div>
+                        <div class="button-groups mt-1">
+                            <a href="/activity/{{_id}}" class="btn btn-success my-1 mr-1"><i class="fas fa-book-reader"></i> Read more</a>
+
+                            <form class="d-inline-block" action="/activity/enroll/{{_id}}" method="POST">
+                                <button type="submit" href="#" class="btn btn-primary my-1 mr-1"><i class="fas fa-plus"></i> Enroll</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
+            </div>
         {{/each}}
     </div>
-    <div>{{user}}</div>
-    
-
-    {{!-- <div class="card">
-        <div class="card border-1">            
-            <div class="card-body">
-                <h3 class="card-title">{{name}}</h3> 
-                <div class="card-text">{{description}}</div> 
-                <div class="card-text">Location: {{location}}</div>  
-                <div class="card-text">Scheduled Date: {{customDate activityDate}}</div>        
-            </div>
-        </div>
-    </div> --}}
-    
-
 {{else}}
 <p>No public activities available from the folloeing user</p>
 {{/if}}
+</div>
