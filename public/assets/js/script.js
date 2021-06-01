@@ -1,9 +1,9 @@
-$( document ).ready(function() {
+$(document).ready(() =>  {
     var w = window.innerWidth;
 
-    if(w > 767){
+    if (w > 767) {
         $('#menu-jk').scrollToFixed();
-    }else{
+    // }else{
        // $('#menu-jk').scrollToFixed();
     }
 
