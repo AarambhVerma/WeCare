@@ -27,6 +27,13 @@ module.exports = {
             return options.inverse(this)
         }
     },
+    checkVolunteer: (val,options) => {
+        if(val === 'Volunteer'){
+            return options.fn(this)
+        }else {
+            return options.inverse(this)
+        }
+    },
     ensureAuthor: (user, activities) => {
         if(user._id === activities.authorID){
             return true

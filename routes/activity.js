@@ -5,7 +5,7 @@ const { ensureAuth } = require('../middleware/authcheck')
 const User = require('../models/User')
 const Activity = require('../models/Activity')
 
-
+var isEnrolled
 
 // @desc    show All Activities
 // @route   GET /
@@ -16,11 +16,11 @@ router.get('/', ensureAuth, async (req, res) => {
             .sort({ createdAt: 'desc'})
             .lean();
         
-        const user = User.findById(req.user._id)
-
+        const user = req.user.isAdmin
+        
         res.render('activity/show_activities', {
             activities,
-            user,
+            user,            
             layout: 'activity'
         })
     } catch (err) {
@@ -237,7 +237,8 @@ router.post("/enroll/:id", ensureAuth, async (req, res) => {
                     $addToSet: {
                         volunteers : req.user.id,
                     },
-                })
+                }
+            )
             const activityID = await User.findOneAndUpdate(
                 {
                     _id : req.user.id,
@@ -247,12 +248,11 @@ router.post("/enroll/:id", ensureAuth, async (req, res) => {
                         userActivities : req.params.id,
                     }
                 }
-            )
-                res.redirect('/dashboard')
+            )        
+            res.redirect('/dashboard')
         }else{
             res.redirect('/activity')
-        }
-        
+        }        
     } catch (err) {
         res.render('error/500')
     }
@@ -265,7 +265,6 @@ router.delete("/unenroll/:id", ensureAuth, async (req, res) => {
     try {
         if(req.user.isAdmin !== "NGO")
         {
-            console.log("deleted")
             const enrollID = await Activity.findOneAndUpdate(
                 { 
                     _id : req.params.id,
@@ -274,7 +273,8 @@ router.delete("/unenroll/:id", ensureAuth, async (req, res) => {
                     $pull: {
                         volunteers : req.user.id,
                     },
-                })
+                }
+            )
             const activityID = await User.findOneAndUpdate(
                 {
                     _id : req.user.id,
@@ -284,8 +284,8 @@ router.delete("/unenroll/:id", ensureAuth, async (req, res) => {
                         userActivities : req.params.id,
                     }
                 }
-            )
-                res.redirect('/dashboard')
+            )            
+            res.redirect('/dashboard')
         }else{
             res.redirect('/activity')
         }

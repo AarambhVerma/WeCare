@@ -21,7 +21,7 @@ require('./passport')(passport)
 app.use(express.static(path.join(__dirname, "../public")))
 
 //handlebar custom helpers
-const { validateValues, customDate, checkAdmin, ensureAuthor, truncate } = require('../helpers/hbs');
+const { validateValues, customDate, checkAdmin, ensureAuthor, truncate, checkVolunteer } = require('../helpers/hbs');
 
 // Handlebars
 app.engine('.hbs', exphbs({ 
@@ -30,7 +30,8 @@ app.engine('.hbs', exphbs({
         customDate,
         checkAdmin,
         ensureAuthor,
-        truncate
+        truncate,
+        checkVolunteer
     }, 
     defaultLayout:'main', 
     extname: '.hbs'

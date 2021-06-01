@@ -4,7 +4,7 @@
         <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
           <div class="flex w-full items-center">
             <div class="flex items-center text-3xl text-gray-900 dark:text-white">
-              <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-12 mr-4 rounded-full" alt="profile" />
+              {{!-- <img src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512" class="w-12 mr-4 rounded-full" alt="profile" /> --}}
               {{user.name}} 
             </div>
             <div class="ml-auto sm:flex hidden items-center justify-end">
@@ -32,8 +32,8 @@
               </tr>
             </thead>
             <tbody class="text-gray-600 dark:text-gray-100">
-              {{#if user}}
-               {{#each user.userActivities}}
+                           
+              {{#each adminActivities}}
               <tr>
                 <td class="sm:p-3 py-2 px-0 border-b border-gray-200 dark:border-gray-800">
                   <div class="flex items-center">
@@ -56,7 +56,7 @@
                 </td>
 
                 <td class="sm:p-3 py-2 px-0 border-b border-gray-200 dark:border-gray-800 text-red-500">                  
-                  {{#checkAdmin user.isAdmin}}
+                  
                     <form class="d-inline-block" action="/activity/{{_id}}" method="POST" id="delete-form">
                       <input type="hidden" name="_method" value="DELETE">
                       <button type="submit" href="#" class="btn btn-outline-danger my-1 mr-1"><i class="fas fa-trash"></i> Delete</button>
@@ -65,15 +65,48 @@
                       <input type="hidden" name="_method" value="UPDATE">
                       <button type="submit" href="#" class="btn btn-outline-warning my-1 mr-1"><i class="fas fa-pen"></i> Update</button>
                     </form>
-                  {{else}}
+                  
+                </td>                
+              </tr>
+              {{/each}}
+              
+
+              {{#if user}}
+              
+              {{#each user.userActivities}}
+              <tr>
+                <td class="sm:p-3 py-2 px-0 border-b border-gray-200 dark:border-gray-800">
+                  <div class="flex items-center">
+                    <h1>{{name}}</h1>
+                  </div>
+                </td>
+                <td class="sm:p-3 py-2 px-0 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">{{truncate description 50}}</td>
+                <td class="sm:p-3 py-2 px-0 border-b border-gray-200 dark:border-gray-800">
+                  <div class="flex items-center">
+                    {{location}}
+                  </div>
+                </td>
+                
+                <td class="sm:p-3 py-2 px-0 border-b border-gray-200 dark:border-gray-800">
+                  <div class="flex items-center">
+                    <div class="sm:flex hidden flex-col">
+                      {{customDate activityDate}}
+                    </div>
+                  </div>
+                </td>
+
+                <td class="sm:p-3 py-2 px-0 border-b border-gray-200 dark:border-gray-800 text-red-500">                  
+                  
+                  
                     <form class="d-inline-block" action="/activity/unenroll/{{_id}}" method="POST">
                       <input type="hidden" name="_method" value="DELETE">
                       <button type="submit" href="#" class="btn btn-outline-danger my-1 mr-1"><i class="fas fa-trash"></i></button>
                     </form>
-                  {{/checkAdmin}}
+                  
                 </td>                
               </tr>
               {{/each}}
+             
               {{/if}}              
             </tbody>
           </table><br><br>
