@@ -86,8 +86,7 @@ body{
     text-rendering: optimizeLegibility;
     color: #6A6A6A;
     overflow-x: hidden;
-    
-
+    min-height: 100vh;
 }
 
 .session-title{
@@ -198,43 +197,43 @@ body{
         }
     }
 }
-.btn-success{
-	background-color: #51be78;
-	border-color: #51be78;
-	&:hover{
-		background-color: #51be78 !important;
-		border-color: #51be78 !important;
-	}
-	&:active{
-		background-color: #51be78 !important;
-		border-color: #51be78 !important;
-	}
-	&:focus{
-		background-color: #51be78 !important;
-		border-color: #51be78 !important;
-		box-shadow: none !important;
-	}
-}
-.btn-primary{
-	background-color: $color-primary;
-	border-color: $color-primary;
-	&:hover{
-		background-color: $color-primary !important;
-		border-color: $color-primary !important;
-	}
-	&:active{
-		background-color: $color-primary !important;
-		border-color: $color-primary !important;
-	}
-	&:focus{
-		background-color: $color-primary !important;
-		border-color: $color-primary !important;
-		box-shadow: none !important;
-	}
-}
-.btn{
-	@include card-1();
-}
+// .btn-success{
+// 	background-color: #51be78;
+// 	border-color: #51be78;
+// 	&:hover{
+// 		background-color: #51be78 !important;
+// 		border-color: #51be78 !important;
+// 	}
+// 	&:active{
+// 		background-color: #51be78 !important;
+// 		border-color: #51be78 !important;
+// 	}
+// 	&:focus{
+// 		background-color: #51be78 !important;
+// 		border-color: #51be78 !important;
+// 		box-shadow: none !important;
+// 	}
+// }
+// .btn-primary{
+// 	background-color: $color-primary;
+// 	border-color: $color-primary;
+// 	&:hover{
+// 		background-color: $color-primary !important;
+// 		border-color: $color-primary !important;
+// 	}
+// 	&:active{
+// 		background-color: $color-primary !important;
+// 		border-color: $color-primary !important;
+// 	}
+// 	&:focus{
+// 		background-color: $color-primary !important;
+// 		border-color: $color-primary !important;
+// 		box-shadow: none !important;
+// 	}
+// }
+// .btn{
+// 	@include card-1();
+// }
 .form-control{
 	&:focus{
 		box-shadow: none !important;

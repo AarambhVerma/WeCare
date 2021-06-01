@@ -108,6 +108,7 @@ body {
   text-rendering: optimizeLegibility;
   color: #6A6A6A;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .session-title {
